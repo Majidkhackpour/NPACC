@@ -54,8 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assistence\Mappings.cs" />
+    <Compile Include="Assistence\SqlProfile.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ModelContext.cs" />
+    <Compile Include="Model\UnitOfWork.cs" />
+    <Compile Include="Persistence\GenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,9 +67,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assistence\" />
     <Folder Include="Entities\" />
-    <Folder Include="Persistence\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EntityCache\EntityCache.csproj">
