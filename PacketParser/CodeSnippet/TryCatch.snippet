@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>Try Catch</Title>
+    <Author>Majid Khackpour</Author>
+    <Shortcut>tryu</Shortcut>
+    <Description>Nothing</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Declarations>
+      <Literal>
+        <ID>ExceptionName</ID>
+        <Default>ex</Default>
+      </Literal>
+    </Declarations>
+    <Code Language="CSharp">
+      <![CDATA[
+       try
+      {
+
+      }
+       catch(Exception ex)
+      {
+        WebErrorLog.ErrorInstence.StartErrorLog(ex);
+      }
+      ]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

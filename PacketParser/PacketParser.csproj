@@ -52,7 +52,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enumm\Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Calendar.cs" />
     <Compile Include="Services\Etentions.cs" />
     <Compile Include="Services\PersianNameAttribute.cs" />
     <Compile Include="Services\SendErrorToTelegram.cs" />
@@ -62,7 +64,11 @@
     <Folder Include="EntitiesInterface\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="CodeSnippet\TryCatch.snippet" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(Configuration) == Release  echo F| xcopy /Y "$(TargetPath)" "D:\Projects\References\$(TargetFileName)"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
