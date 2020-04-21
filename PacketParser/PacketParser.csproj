@@ -52,11 +52,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enumm\Enums.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Calendar.cs" />
+    <Compile Include="Services\CurrencyText.cs" />
     <Compile Include="Services\Etentions.cs" />
     <Compile Include="Services\PersianNameAttribute.cs" />
+    <Compile Include="Services\ReturnedSaveFuncInfo.cs" />
     <Compile Include="Services\SendErrorToTelegram.cs" />
     <Compile Include="Services\WebErrorLog.cs" />
   </ItemGroup>

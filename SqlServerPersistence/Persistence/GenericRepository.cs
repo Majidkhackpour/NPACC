@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using EntityCache.Core;
+using PacketParser.Services;
 using SqlServerPersistence.Model;
 
 namespace SqlServerPersistence.Persistence
@@ -33,6 +34,7 @@ namespace SqlServerPersistence.Persistence
                 }
                 catch (Exception e)
                 {
+                    WebErrorLog.ErrorInstence.StartErrorLog(e);
                     transaction.Rollback();
                     return null;
                 }
@@ -49,6 +51,7 @@ namespace SqlServerPersistence.Persistence
                 }
                 catch (Exception e)
                 {
+                    WebErrorLog.ErrorInstence.StartErrorLog(e);
                     transaction.Rollback();
                     return null;
                 }
@@ -67,6 +70,7 @@ namespace SqlServerPersistence.Persistence
             }
             catch (Exception e)
             {
+                WebErrorLog.ErrorInstence.StartErrorLog(e);
                 return false;
             }
         }
@@ -87,6 +91,7 @@ namespace SqlServerPersistence.Persistence
             }
             catch (Exception e)
             {
+                WebErrorLog.ErrorInstence.StartErrorLog(e);
                 return false;
             }
         }
@@ -104,6 +109,7 @@ namespace SqlServerPersistence.Persistence
                 }
                 catch (Exception ex)
                 {
+                    WebErrorLog.ErrorInstence.StartErrorLog(ex);
                     transaction.Rollback();
                     return null;
                 }
@@ -121,6 +127,7 @@ namespace SqlServerPersistence.Persistence
                 }
                 catch (Exception ex)
                 {
+                    WebErrorLog.ErrorInstence.StartErrorLog(ex);
                     transaction.Rollback();
                     return false;
                 }
@@ -137,6 +144,7 @@ namespace SqlServerPersistence.Persistence
                 }
                 catch (Exception e)
                 {
+                    WebErrorLog.ErrorInstence.StartErrorLog(e);
                     transaction.Rollback();
                     return false;
                 }
@@ -162,6 +170,7 @@ namespace SqlServerPersistence.Persistence
             }
             catch (Exception e)
             {
+                WebErrorLog.ErrorInstence.StartErrorLog(e);
                 return false;
             }
         }

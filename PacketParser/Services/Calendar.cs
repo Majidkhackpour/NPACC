@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
-using PacketParser.Enumm;
 
 namespace PacketParser.Services
 {
@@ -370,7 +369,7 @@ namespace PacketParser.Services
             }
         }
 
-        public static string GetPartday(string date, Enums.EnPartDate type)
+        public static string GetPartday(string date, EnPartDate type)
         {
             try
             {
@@ -379,9 +378,9 @@ namespace PacketParser.Services
                 var d = date.Substring(8, 2);
                 switch (type)
                 {
-                    case Enums.EnPartDate.Year: return y;
-                    case Enums.EnPartDate.Mounth: return m;
-                    case Enums.EnPartDate.Day: return d;
+                    case EnPartDate.Year: return y;
+                    case EnPartDate.Mounth: return m;
+                    case EnPartDate.Day: return d;
                     default: return "";
                 }
             }
@@ -407,7 +406,7 @@ namespace PacketParser.Services
             }
         }
 
-        public static string AddToShamsiDate(int days, string dateSH, Enums.EnPartDate part)
+        public static string AddToShamsiDate(int days, string dateSH, EnPartDate part)
         {
             try
             {
@@ -425,14 +424,14 @@ namespace PacketParser.Services
                 var addDays = 0;
                 switch (part)
                 {
-                    case Enums.EnPartDate.Day:
+                    case EnPartDate.Day:
                         addDays = days;
                         break;
-                    case Enums.EnPartDate.Mounth:
+                    case EnPartDate.Mounth:
                         if (days < 0) m = m - 1;
                         addDays = days * EndDayOfMonth((short)m, y);
                         break;
-                    case Enums.EnPartDate.Year:
+                    case EnPartDate.Year:
                         return (y + days) + "/" + m.ToString("00") + "/" + d.ToString("00");
                 }
 
