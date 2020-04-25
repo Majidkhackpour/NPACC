@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using SqlServerPersistence.Entities;
 using SqlServerPersistence.Migrations;
 
 namespace SqlServerPersistence.Model
@@ -11,5 +12,6 @@ namespace SqlServerPersistence.Model
             Database.SetInitializer(
                 new MigrateDatabaseToLatestVersion<ModelContext, Configuration>());
         }
+        public virtual DbSet<CustomerGroup> CustomerGroup { get; set; }
     }
 }

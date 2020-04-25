@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using EntityCache.Core;
+using PacketParser.EntitiesInterface;
 using PacketParser.Services;
 using SqlServerPersistence.Model;
 

@@ -1,9 +1,10 @@
 ﻿using System;
 
-namespace EntityCache.Core
+namespace PacketParser.EntitiesInterface
 {
    public interface IHasGuid
     {
         Guid Guid { get; set; }
+        DateTime Modified { get; set; }
     }
 }

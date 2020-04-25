@@ -84,8 +84,10 @@
     <Compile Include="Assistence\ClsCache.cs" />
     <Compile Include="Assistence\Mappings.cs" />
     <Compile Include="Assistence\SqlProfile.cs" />
-    <Compile Include="Core\IHasGuid.cs" />
+    <Compile Include="Bussines\CustomerGroupBussines.cs" />
+    <Compile Include="Core\ICustomerGroupRepository.cs" />
     <Compile Include="Core\IRepository.cs" />
+    <Compile Include="Persistence\CustomerGroupPersistenceRepository.cs" />
     <Compile Include="Persistence\GenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Assistence\UnitOfWork.cs" />
@@ -94,9 +96,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Bussines\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\PacketParser\PacketParser.csproj">
       <Project>{24329a11-1d13-47ca-ac26-1843a43e0633}</Project>

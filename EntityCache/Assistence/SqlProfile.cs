@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using EntityCache.Bussines;
+using SqlServerPersistence.Entities;
 
 namespace EntityCache.Assistence
 {
@@ -6,7 +8,7 @@ namespace EntityCache.Assistence
     {
         public SqlProfile()
         {
-
+            CreateMap<CustomerGroup, CustomerGroupBussines>().ReverseMap();
         }
     }
 }

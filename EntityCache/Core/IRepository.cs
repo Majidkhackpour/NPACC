@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using PacketParser.EntitiesInterface;
 using PacketParser.Services;
 
 namespace EntityCache.Core

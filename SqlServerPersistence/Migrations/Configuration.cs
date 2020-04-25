@@ -2,7 +2,7 @@
 {
     using System.Data.Entity.Migrations;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Model.ModelContext>
+    public sealed class Configuration : DbMigrationsConfiguration<Model.ModelContext>
     {
         public Configuration()
         {
