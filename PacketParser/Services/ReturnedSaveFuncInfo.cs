@@ -94,25 +94,25 @@ namespace PacketParser.Services
             }
         }
 
-        public ReturnedSaveFuncInfo(ReturnedState information, string v)
+        public ReturnedSaveFuncInfo(ReturnedState information, string description)
         {
-            AddReturnedValue(information, v);
+            AddReturnedValue(information, description);
         }
 
-        public void AddReturnedValue(ReturnedState returnedState, string value)
+        public void AddReturnedValue(ReturnedState returnedState, string description)
         {
             try
             {
                 switch (returnedState)
                 {
                     case ReturnedState.Information:
-                        InformationList.Add(value);
+                        InformationList.Add(description);
                         break;
                     case ReturnedState.Error:
-                        ErrorList.Add(value);
+                        ErrorList.Add(description);
                         break;
                     case ReturnedState.Warning:
-                        WarningList.Add(value);
+                        WarningList.Add(description);
                         break;
                 }
             }
@@ -127,6 +127,7 @@ namespace PacketParser.Services
             try
             {
                 InformationList.Clear();
+
             }
             catch (Exception ex)
             {
@@ -162,7 +163,15 @@ namespace PacketParser.Services
         {
             try
             {
-                ErrorList.Add(ex.Message);
+                if (ex == null) return;
+                var msg = ex.Message;
+                var temp = ex;
+                while (temp.InnerException != null)
+                {
+                    temp = temp.InnerException;
+                    msg += $"\r\nInnerException:{temp.Message}";
+                }
+                ErrorList.Add(msg);
             }
             catch (Exception ex2)
             {
@@ -170,7 +179,7 @@ namespace PacketParser.Services
             }
         }
 
-        public void AddReturnedValue(ReturnedSaveFuncInfo returnedSaveFuncInfo)
+        public ReturnedSaveFuncInfo AddReturnedValue(ReturnedSaveFuncInfo returnedSaveFuncInfo)
         {
             try
             {
@@ -183,6 +192,13 @@ namespace PacketParser.Services
             {
                 WebErrorLog.ErrorInstence.StartErrorLog(ex);
             }
+            return returnedSaveFuncInfo;
+        }
+
+        public void ThrowExceptionIfError()
+        {
+            if (HasError)
+                throw new Exception(ErrorMessage);
         }
     }
 }

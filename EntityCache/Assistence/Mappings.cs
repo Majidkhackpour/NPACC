@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace SqlServerPersistence.Assistence
+namespace EntityCache.Assistence
 {
     class Mappings
     {

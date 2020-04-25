@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=9.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.9.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -78,9 +81,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assistence\ClsCache.cs" />
+    <Compile Include="Assistence\Mappings.cs" />
+    <Compile Include="Assistence\SqlProfile.cs" />
     <Compile Include="Core\IHasGuid.cs" />
     <Compile Include="Core\IRepository.cs" />
+    <Compile Include="Persistence\GenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Assistence\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -93,6 +101,10 @@
     <ProjectReference Include="..\PacketParser\PacketParser.csproj">
       <Project>{24329a11-1d13-47ca-ac26-1843a43e0633}</Project>
       <Name>PacketParser</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlServerPersistence\SqlServerPersistence.csproj">
+      <Project>{8dc0af9f-14ef-4cef-88fd-0d12969a1200}</Project>
+      <Name>SqlServerPersistence</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

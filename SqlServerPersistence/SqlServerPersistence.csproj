@@ -54,12 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assistence\Mappings.cs" />
-    <Compile Include="Assistence\SqlProfile.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ModelContext.cs" />
-    <Compile Include="Model\UnitOfWork.cs" />
-    <Compile Include="Persistence\GenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,10 +66,6 @@
     <Folder Include="Entities\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EntityCache\EntityCache.csproj">
-      <Project>{41b715f0-dc5a-4424-ad7b-9bac9ad5a132}</Project>
-      <Name>EntityCache</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PacketParser\PacketParser.csproj">
       <Project>{24329a11-1d13-47ca-ac26-1843a43e0633}</Project>
       <Name>PacketParser</Name>

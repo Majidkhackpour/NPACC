@@ -1,8 +1,9 @@
 ﻿using System;
+using SqlServerPersistence.Model;
 
-namespace SqlServerPersistence.Model
+namespace EntityCache.Assistence
 {
-   public class UnitOfWork:IDisposable
+    public class UnitOfWork : IDisposable
     {
         private readonly ModelContext db = new ModelContext();
         public void Dispose()

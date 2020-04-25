@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using PacketParser.Services;
 
 namespace EntityCache.Core
 {
     public interface IRepository<T> where T : class, IHasGuid, new()
     {
         T Get(Guid guid);
-        bool Remove(T item);
-        bool RemoveAll(List<T> list);
+        ReturnedSaveFuncInfo Remove(T item);
+        ReturnedSaveFuncInfo RemoveAll(List<T> list);
         List<T> GetAll();
-        bool Update(T entity);
-        bool Save(T item);
+        ReturnedSaveFuncInfo Save(T item);
     }
 }
