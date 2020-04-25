@@ -5,24 +5,24 @@ using SqlServerPersistence.Model;
 
 namespace EntityCache.Assistence
 {
-    public class UnitOfWork : IDisposable
+    public static class UnitOfWork 
     {
-        private readonly ModelContext db = new ModelContext();
+        private static readonly ModelContext db = new ModelContext();
         
-        private ICustomerGroupRepository _customerGroupRepository;
+        private static ICustomerGroupRepository _customerGroupRepository;
 
 
-        public void Dispose()
+        public static void Dispose()
         {
             db?.Dispose();
         }
-        public void Set_Save()
+        public static void Set_Save()
         {
             db.SaveChanges();
         }
 
 
-        public ICustomerGroupRepository CustomerGroup => _customerGroupRepository ??
+        public static ICustomerGroupRepository CustomerGroup => _customerGroupRepository ??
                                                          (_customerGroupRepository =
                                                              new CustomerGroupPersistenceRepository(db));
     }

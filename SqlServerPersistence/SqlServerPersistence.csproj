@@ -55,6 +55,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\CustomerGroup.cs" />
+    <Compile Include="Migrations\202004251624194__One.cs" />
+    <Compile Include="Migrations\202004251624194__One.designer.cs">
+      <DependentUpon>202004251624194__One.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ModelContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,7 +67,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202004251624194__One.resx">
+      <DependentUpon>202004251624194__One.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PacketParser\PacketParser.csproj">
       <Project>{24329a11-1d13-47ca-ac26-1843a43e0633}</Project>

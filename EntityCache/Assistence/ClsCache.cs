@@ -7,7 +7,7 @@ namespace EntityCache.Assistence
 {
     public class ClsCache
     {
-        public void Init()
+        public static void Init()
         {
             var config = new MapperConfiguration(c => { c.AddProfile(new SqlProfile()); });
             Mappings.Default = new Mapper(config);

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using EntityCache.Assistence;
 using PacketParser.EntitiesInterface;
 
 namespace EntityCache.Bussines
@@ -10,5 +13,8 @@ namespace EntityCache.Bussines
         public string Name { get; set; }
         public Guid ParentGuid { get; set; }
         public string Description { get; set; }
+
+        public static async Task<List<CustomerGroupBussines>> GetAllAsync() => await UnitOfWork.CustomerGroup.GetAllAsync();
+
     }
 }
