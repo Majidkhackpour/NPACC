@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
-using AutoMapper;
 using EntityCache.Assistence;
 using EntityCache.Core;
 using PacketParser.EntitiesInterface;
@@ -49,6 +47,7 @@ namespace EntityCache.Persistence
                 var ret = _dbContext.Set<U>().AsNoTracking().FirstOrDefault(p => p.Guid == guid);
                 if (ret != null)
                     _dbContext.Set<U>().Remove(ret);
+                await _dbContext.SaveChangesAsync();
                 return new ReturnedSaveFuncInfo();
             }
             catch (Exception ex)
@@ -63,6 +62,7 @@ namespace EntityCache.Persistence
             try
             {
                 _dbContext.Set<U>().RemoveRange(_dbContext.Set<U>().AsNoTracking().ToList());
+                await _dbContext.SaveChangesAsync();
                 return new ReturnedSaveFuncInfo();
             }
             catch (Exception ex)
@@ -99,6 +99,7 @@ namespace EntityCache.Persistence
 
                 var ret = Mappings.Default.Map<U>(item);
                 _dbContext.Set<U>().AddOrUpdate(ret);
+                await _dbContext.SaveChangesAsync();
                 return new ReturnedSaveFuncInfo();
             }
             catch (Exception ex)
@@ -118,6 +119,8 @@ namespace EntityCache.Persistence
                     if (ret != null)
                         _dbContext.Set<U>().Remove(ret);
                 }
+
+                await _dbContext.SaveChangesAsync();
                 return new ReturnedSaveFuncInfo();
             }
             catch (Exception ex)

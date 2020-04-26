@@ -91,6 +91,7 @@
     <Compile Include="Persistence\GenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Assistence\UnitOfWork.cs" />
+    <Compile Include="WebBussines\WebCustomerGroup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
