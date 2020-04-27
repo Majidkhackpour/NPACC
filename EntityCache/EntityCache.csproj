@@ -84,13 +84,17 @@
     <Compile Include="Assistence\ClsCache.cs" />
     <Compile Include="Assistence\Mappings.cs" />
     <Compile Include="Assistence\SqlProfile.cs" />
+    <Compile Include="Bussines\CustomerBussines.cs" />
     <Compile Include="Bussines\CustomerGroupBussines.cs" />
     <Compile Include="Core\ICustomerGroupRepository.cs" />
+    <Compile Include="Core\ICustomerRepository.cs" />
     <Compile Include="Core\IRepository.cs" />
     <Compile Include="Persistence\CustomerGroupPersistenceRepository.cs" />
+    <Compile Include="Persistence\CustomerPersistenceRepository.cs" />
     <Compile Include="Persistence\GenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Assistence\UnitOfWork.cs" />
+    <Compile Include="WebBussines\WebCustomer.cs" />
     <Compile Include="WebBussines\WebCustomerGroup.cs" />
   </ItemGroup>
   <ItemGroup>

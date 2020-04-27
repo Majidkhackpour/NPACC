@@ -4,9 +4,8 @@ using EntityCache.Bussines;
 
 namespace EntityCache.Core
 {
-    public interface ICustomerGroupRepository : IRepository<CustomerGroupBussines>
+    public interface ICustomerRepository : IRepository<CustomerBussines>
     {
         Task<bool> CheckName(Guid guid, string name);
-        Task<int> ChildCount(Guid guid);
     }
 }

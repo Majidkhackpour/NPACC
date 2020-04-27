@@ -9,6 +9,7 @@ namespace EntityCache.Assistence
         public SqlProfile()
         {
             CreateMap<CustomerGroup, CustomerGroupBussines>().ReverseMap();
+            CreateMap<Customer, CustomerBussines>().ReverseMap();
         }
     }
 }

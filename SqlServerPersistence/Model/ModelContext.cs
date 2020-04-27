@@ -13,5 +13,6 @@ namespace SqlServerPersistence.Model
                 new MigrateDatabaseToLatestVersion<ModelContext, Configuration>());
         }
         public virtual DbSet<CustomerGroup> CustomerGroup { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
     }
 }

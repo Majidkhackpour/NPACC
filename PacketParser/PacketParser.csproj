@@ -52,6 +52,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntitiesInterface\ICustomer.cs" />
     <Compile Include="EntitiesInterface\ICustomerGroup.cs" />
     <Compile Include="EntitiesInterface\IHasGuid.cs" />
     <Compile Include="Enums.cs" />

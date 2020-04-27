@@ -9,6 +9,17 @@ namespace PacketParser
         [PersianNameAttribute.PersianName("ماه")] Mounth = 2,
         [PersianNameAttribute.PersianName("روز")] Day = 3
     }
+    public enum EnNahveAshnaei : short
+    {
+        [PersianNameAttribute.PersianName("موتور جستجوگر گوگل")] Google = 1,
+        [PersianNameAttribute.PersianName("دریافت پیامک تبلیغاتی")] SMS = 2,
+        [PersianNameAttribute.PersianName("تبلیغات در سایت های دیگر")] OtherSite = 3,
+        [PersianNameAttribute.PersianName("تراکت و بروشور تبلیغاتی")] Tracket = 4,
+        [PersianNameAttribute.PersianName("معرفی دوستان")] Introduction = 5,
+        [PersianNameAttribute.PersianName("کانال و گروه تلگرام")] Telegram = 6,
+        [PersianNameAttribute.PersianName("پیج اینستاگرام")] Instagram = 7,
+        [PersianNameAttribute.PersianName("سایر موراد")] Other = 8
+    }
     public enum ReturnedState : short
     {
         Information = 1,

@@ -54,10 +54,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\CustomerGroup.cs" />
     <Compile Include="Migrations\202004251624194__One.cs" />
     <Compile Include="Migrations\202004251624194__One.designer.cs">
       <DependentUpon>202004251624194__One.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004271453469_Tow.cs" />
+    <Compile Include="Migrations\202004271453469_Tow.designer.cs">
+      <DependentUpon>202004271453469_Tow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004271529560__Three.cs" />
+    <Compile Include="Migrations\202004271529560__Three.designer.cs">
+      <DependentUpon>202004271529560__Three.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ModelContext.cs" />
@@ -70,6 +79,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004251624194__One.resx">
       <DependentUpon>202004251624194__One.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004271453469_Tow.resx">
+      <DependentUpon>202004271453469_Tow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004271529560__Three.resx">
+      <DependentUpon>202004271529560__Three.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

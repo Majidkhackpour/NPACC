@@ -58,5 +58,38 @@ namespace EntityCache.Bussines
 
         public static async Task<bool> CheckName(Guid guid, string name) =>
             await UnitOfWork.CustomerGroup.CheckName(guid, name);
+
+        public async Task<ReturnedSaveFuncInfo> RemoveAsync(string tranName = "")
+        {
+            var res = new ReturnedSaveFuncInfo();
+            var autoTran = string.IsNullOrEmpty(tranName);
+            if (autoTran) tranName = Guid.NewGuid().ToString();
+            try
+            {
+                if (autoTran)
+                { //BeginTransaction
+                }
+
+                res.AddReturnedValue(await UnitOfWork.CustomerGroup.RemoveAsync(Guid, tranName));
+                res.ThrowExceptionIfError();
+                if (autoTran)
+                {
+                    //CommitTransAction
+                }
+            }
+            catch (Exception ex)
+            {
+                if (autoTran)
+                {
+                    //RollBackTransAction
+                }
+                WebErrorLog.ErrorInstence.StartErrorLog(ex);
+                res.AddReturnedValue(ex);
+            }
+
+            return res;
+        }
+
+        public static async Task<int> ChildCount(Guid guid) => await UnitOfWork.CustomerGroup.ChildCount(guid);
     }
 }

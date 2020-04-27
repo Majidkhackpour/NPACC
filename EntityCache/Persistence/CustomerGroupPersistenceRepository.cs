@@ -32,5 +32,19 @@ namespace EntityCache.Persistence
                 return false;
             }
         }
+
+        public async Task<int> ChildCount(Guid guid)
+        {
+            try
+            {
+                var acc = db.CustomerGroup.AsNoTracking().Count(q => q.ParentGuid == guid);
+                return acc;
+            }
+            catch (Exception exception)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(exception);
+                return 0;
+            }
+        }
     }
 }
