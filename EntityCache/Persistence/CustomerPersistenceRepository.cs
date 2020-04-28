@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EntityCache.Assistence;
 using EntityCache.Bussines;
 using EntityCache.Core;
 using PacketParser.Services;
@@ -30,6 +32,22 @@ namespace EntityCache.Persistence
             {
                 WebErrorLog.ErrorInstence.StartErrorLog(exception);
                 return false;
+            }
+        }
+
+        public async Task<List<CustomerBussines>> GetAllByGroupAsync(Guid groupGuid)
+        {
+            try
+            {
+                var acc = db.Customer.AsNoTracking().Where(q => q.GroupGuid == groupGuid)
+                    .ToList();
+                var ret = Mappings.Default.Map<List<CustomerBussines>>(acc);
+                return ret;
+            }
+            catch (Exception exception)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(exception);
+                return null;
             }
         }
     }

@@ -16,12 +16,12 @@ namespace EntityCache.Persistence
         where T : class, IHasGuid, new()
     {
         private ModelContext _dbContext;
-        private DbSet<T> _dbSet;
+        private DbSet<U> _dbSet;
 
         public GenericRepository(ModelContext db)
         {
             this._dbContext = db;
-            this._dbSet = _dbContext.Set<T>();
+            this._dbSet = _dbContext.Set<U>();
         }
 
         public async Task<T> GetAsync(Guid guid)
@@ -44,10 +44,11 @@ namespace EntityCache.Persistence
         {
             try
             {
-                var ret = _dbContext.Set<U>().AsNoTracking().FirstOrDefault(p => p.Guid == guid);
+                var ret = _dbContext.Set<U>().FirstOrDefault(p => p.Guid == guid);
                 if (ret == null) return new ReturnedSaveFuncInfo();
-                _dbContext.Set<U>().Attach(ret);
-                _dbContext.Entry(ret).State = EntityState.Deleted;
+                if (_dbContext.Entry(ret).State == EntityState.Detached)
+                    _dbSet.Attach(ret);
+                _dbSet.Remove(ret);
                 await _dbContext.SaveChangesAsync();
                 return new ReturnedSaveFuncInfo();
             }
