@@ -10,6 +10,7 @@ namespace EntityCache.Assistence
         {
             CreateMap<CustomerGroup, CustomerGroupBussines>().ReverseMap();
             CreateMap<Customer, CustomerBussines>().ReverseMap();
+            CreateMap<ProductGroup, ProductGroupBussines>().ReverseMap();
         }
     }
 }

@@ -55,6 +55,7 @@
     <Compile Include="EntitiesInterface\ICustomer.cs" />
     <Compile Include="EntitiesInterface\ICustomerGroup.cs" />
     <Compile Include="EntitiesInterface\IHasGuid.cs" />
+    <Compile Include="EntitiesInterface\IProductGroup.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Calendar.cs" />

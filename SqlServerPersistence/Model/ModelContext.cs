@@ -14,5 +14,6 @@ namespace SqlServerPersistence.Model
         }
         public virtual DbSet<CustomerGroup> CustomerGroup { get; set; }
         public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<ProductGroup> ProductGroup { get; set; }
     }
 }
