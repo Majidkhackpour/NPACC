@@ -11,6 +11,8 @@ namespace EntityCache.Assistence
         private static ICustomerGroupRepository _customerGroupRepository;
         private static ICustomerRepository _customerRepository;
         private static IProductGroupRepository _productGroupRepository;
+        private static IProductRepository _productRepository;
+        private static IProductPicturesRepository _prdPicturesGroupRepository;
 
 
         public static void Dispose()
@@ -34,5 +36,13 @@ namespace EntityCache.Assistence
         public static IProductGroupRepository ProductGroup => _productGroupRepository ??
                                                               (_productGroupRepository =
                                                                   new ProductGroupPersisteceRepository(db));
+
+        public static IProductRepository Product => _productRepository ??
+                                                      (_productRepository =
+                                                          new ProductPersistenceRepository(db));
+
+        public static IProductPicturesRepository ProductPictures => _prdPicturesGroupRepository ??
+                                                                    (_prdPicturesGroupRepository =
+                                                                        new ProductPicturesPersitenceRepository(db));
     }
 }

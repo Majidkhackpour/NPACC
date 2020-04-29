@@ -56,7 +56,9 @@
   <ItemGroup>
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\CustomerGroup.cs" />
+    <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ProductGroup.cs" />
+    <Compile Include="Entities\ProductPictures.cs" />
     <Compile Include="Migrations\202004251624194__One.cs" />
     <Compile Include="Migrations\202004251624194__One.designer.cs">
       <DependentUpon>202004251624194__One.cs</DependentUpon>
@@ -72,6 +74,10 @@
     <Compile Include="Migrations\202004291402441__Four.cs" />
     <Compile Include="Migrations\202004291402441__Four.designer.cs">
       <DependentUpon>202004291402441__Four.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004291600509__Five.cs" />
+    <Compile Include="Migrations\202004291600509__Five.designer.cs">
+      <DependentUpon>202004291600509__Five.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ModelContext.cs" />
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004291402441__Four.resx">
       <DependentUpon>202004291402441__Four.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004291600509__Five.resx">
+      <DependentUpon>202004291600509__Five.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

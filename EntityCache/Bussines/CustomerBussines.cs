@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using EntityCache.Assistence;
 using Nito.AsyncEx;
@@ -96,5 +98,39 @@ namespace EntityCache.Bussines
 
         public static async Task<List<CustomerBussines>> GetAllByGroupAsync(Guid groupGuid) =>
             await UnitOfWork.Customer.GetAllByGroupAsync(groupGuid);
+
+        public static async Task<List<CustomerBussines>> GetAllAsync(string search)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(search))
+                    search = "";
+                List<CustomerBussines> res = null;
+                res = await GetAllAsync();
+                var searchItems = search.SplitString();
+                if (searchItems?.Count > 0)
+                    foreach (var item in searchItems)
+                    {
+                        if (!string.IsNullOrEmpty(item) && item.Trim() != "")
+                        {
+                            res = res.Where(x =>
+                                x.Name.Contains(item) || 
+                                x.Phone1.Contains(item) || 
+                                x.Address.Contains(item))
+                                ?.ToList();
+                        }
+                    }
+
+                res = res?.OrderBy(o => o.Name).ToList();
+                return res;
+            }
+            catch (OperationCanceledException)
+            { return null; }
+            catch (Exception ex)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(ex);
+                return new List<CustomerBussines>();
+            }
+        }
     }
 }
