@@ -13,6 +13,9 @@ namespace EntityCache.Assistence
             CreateMap<ProductGroup, ProductGroupBussines>().ReverseMap();
             CreateMap<Product, ProductBussines>().ReverseMap();
             CreateMap<ProductPictures, ProductPicturesBussines>().ReverseMap();
+            CreateMap<Simcard, SimcardBussines>().ReverseMap();
+            CreateMap<DivarCategory, DivarCategoryBussines>().ReverseMap();
+            CreateMap<ChatNumbers, ChatNumberBussines>().ReverseMap();
         }
     }
 }

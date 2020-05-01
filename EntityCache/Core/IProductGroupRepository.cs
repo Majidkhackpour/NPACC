@@ -8,5 +8,6 @@ namespace EntityCache.Core
     {
         Task<bool> CheckName(Guid guid, string name);
         Task<int> ChildCount(Guid guid);
+        Task<string> NextCode();
     }
 }

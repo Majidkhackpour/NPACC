@@ -2,11 +2,9 @@
 
 namespace PacketParser.EntitiesInterface
 {
-    public interface IProductGroup : IHasGuid
+    public interface IDivarCategory : IHasGuid
     {
-        string Code { get; set; }
         string Name { get; set; }
         Guid ParentGuid { get; set; }
-        string Description { get; set; }
     }
 }

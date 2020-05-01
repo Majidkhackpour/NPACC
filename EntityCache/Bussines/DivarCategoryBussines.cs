@@ -2,29 +2,51 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using EntityCache.Assistence;
-using Nito.AsyncEx;
 using PacketParser.EntitiesInterface;
 using PacketParser.Services;
 
 namespace EntityCache.Bussines
 {
-    public class ProductGroupBussines : IProductGroup
+    public class DivarCategoryBussines : IDivarCategory
     {
         public Guid Guid { get; set; }
         public DateTime Modified { get; set; } = DateTime.Now;
-        public string Code { get; set; }
         public string Name { get; set; }
         public Guid ParentGuid { get; set; }
-        public string Description { get; set; }
 
-        public static async Task<List<ProductGroupBussines>> GetAllAsync() =>
-            await UnitOfWork.ProductGroup.GetAllAsync();
+        public static async Task<List<DivarCategoryBussines>> GetAllAsync() =>
+            await UnitOfWork.DivarCategory.GetAllAsync();
 
-        public static async Task<ProductGroupBussines> GetAsync(Guid guid) =>
-            await UnitOfWork.ProductGroup.GetAsync(guid);
+        public static async Task<ReturnedSaveFuncInfo> RemoveRangeAsync(List<Guid> lst, string tranName = "")
+        {
+            var res = new ReturnedSaveFuncInfo();
+            var autoTran = string.IsNullOrEmpty(tranName);
+            if (autoTran) tranName = Guid.NewGuid().ToString();
+            try
+            {
+                if (autoTran)
+                { //BeginTransaction
+                }
 
-        public static ProductGroupBussines Get(Guid guid) =>
-            AsyncContext.Run(() => GetAsync(guid));
+                res.AddReturnedValue(await UnitOfWork.DivarCategory.RemoveRangeAsync(lst, tranName));
+                res.ThrowExceptionIfError();
+                if (autoTran)
+                {
+                    //CommitTransAction
+                }
+            }
+            catch (Exception ex)
+            {
+                if (autoTran)
+                {
+                    //RollBackTransAction
+                }
+                WebErrorLog.ErrorInstence.StartErrorLog(ex);
+                res.AddReturnedValue(ex);
+            }
+
+            return res;
+        }
 
         public async Task<ReturnedSaveFuncInfo> SaveAsync(string tranName = "")
         {
@@ -37,7 +59,7 @@ namespace EntityCache.Bussines
                 { //BeginTransaction
                 }
 
-                res.AddReturnedValue(await UnitOfWork.ProductGroup.SaveAsync(this, tranName));
+                res.AddReturnedValue(await UnitOfWork.DivarCategory.SaveAsync(this, tranName));
                 res.ThrowExceptionIfError();
                 if (autoTran)
                 {
@@ -57,42 +79,7 @@ namespace EntityCache.Bussines
             return res;
         }
 
-        public static async Task<bool> CheckName(Guid guid, string name) =>
-            await UnitOfWork.ProductGroup.CheckName(guid, name);
-
-        public async Task<ReturnedSaveFuncInfo> RemoveAsync(string tranName = "")
-        {
-            var res = new ReturnedSaveFuncInfo();
-            var autoTran = string.IsNullOrEmpty(tranName);
-            if (autoTran) tranName = Guid.NewGuid().ToString();
-            try
-            {
-                if (autoTran)
-                { //BeginTransaction
-                }
-
-                res.AddReturnedValue(await UnitOfWork.ProductGroup.RemoveAsync(Guid, tranName));
-                res.ThrowExceptionIfError();
-                if (autoTran)
-                {
-                    //CommitTransAction
-                }
-            }
-            catch (Exception ex)
-            {
-                if (autoTran)
-                {
-                    //RollBackTransAction
-                }
-                WebErrorLog.ErrorInstence.StartErrorLog(ex);
-                res.AddReturnedValue(ex);
-            }
-
-            return res;
-        }
-
-        public static async Task<int> ChildCount(Guid guid) => await UnitOfWork.ProductGroup.ChildCount(guid);
-
-        public static async Task<string> NextCode() => await UnitOfWork.ProductGroup.NextCode();
+        public static async Task<List<DivarCategoryBussines>> GetAllAsync(Guid parentGuid) =>
+            await UnitOfWork.DivarCategory.GetAllAsync(parentGuid);
     }
 }

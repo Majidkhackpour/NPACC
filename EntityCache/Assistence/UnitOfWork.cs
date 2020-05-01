@@ -13,6 +13,9 @@ namespace EntityCache.Assistence
         private static IProductGroupRepository _productGroupRepository;
         private static IProductRepository _productRepository;
         private static IProductPicturesRepository _prdPicturesGroupRepository;
+        private static ISimcardRepository _simcardRepository;
+        private static IChatNumberRepository _chatNumberRepository;
+        private static IDivarCategoryRepository _divarCategoryRepository;
 
 
         public static void Dispose()
@@ -44,5 +47,17 @@ namespace EntityCache.Assistence
         public static IProductPicturesRepository ProductPictures => _prdPicturesGroupRepository ??
                                                                     (_prdPicturesGroupRepository =
                                                                         new ProductPicturesPersitenceRepository(db));
+
+        public static ISimcardRepository Simcard => _simcardRepository ??
+                                                              (_simcardRepository =
+                                                                  new SimcardPersistenceRepository(db));
+
+        public static IChatNumberRepository ChatNumbers => _chatNumberRepository ??
+                                                    (_chatNumberRepository =
+                                                        new ChatNumberPersitenceRepository(db));
+
+        public static IDivarCategoryRepository DivarCategory => _divarCategoryRepository ??
+                                                                    (_divarCategoryRepository =
+                                                                        new DivarCategoreyPersistenceRepository(db));
     }
 }

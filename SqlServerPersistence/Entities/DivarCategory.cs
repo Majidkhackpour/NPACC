@@ -4,16 +4,13 @@ using PacketParser.EntitiesInterface;
 
 namespace SqlServerPersistence.Entities
 {
-   public class ProductGroup:IProductGroup
+    public class DivarCategory : IDivarCategory
     {
         [Key]
         public Guid Guid { get; set; }
         public DateTime Modified { get; set; }
-        [MaxLength(5)]
-        public string Code { get; set; }
-        [MaxLength(200)]
+        [MaxLength(150)]
         public string Name { get; set; }
         public Guid ParentGuid { get; set; }
-        public string Description { get; set; }
     }
 }
