@@ -32,5 +32,20 @@ namespace EntityCache.Persistence
                 return null;
             }
         }
+
+        public async Task<bool> CheckNumber(Guid guid, long number)
+        {
+            try
+            {
+                var acc = db.Simcard.AsNoTracking().Where(q => q.Number == number && q.Guid != guid)
+                    .ToList();
+                return acc.Count == 0;
+            }
+            catch (Exception exception)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(exception);
+                return false;
+            }
+        }
     }
 }

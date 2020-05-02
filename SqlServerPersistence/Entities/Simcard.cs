@@ -14,6 +14,9 @@ namespace SqlServerPersistence.Entities
         public string OwnerName { get; set; }
         public string DivarToken { get; set; }
         public string ChatToken { get; set; }
+        public Guid? AdvCat1 { get; set; }
+        public Guid? AdvCat2 { get; set; }
+        public Guid? AdvCat3 { get; set; }
         public Guid? ChatCat1 { get; set; }
         public Guid? ChatCat2 { get; set; }
         public Guid? ChatCat3 { get; set; }
