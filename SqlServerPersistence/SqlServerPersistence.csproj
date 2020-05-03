@@ -94,6 +94,14 @@
     <Compile Include="Migrations\202005021407443__Eight.designer.cs">
       <DependentUpon>202005021407443__Eight.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005031521574__Nine.cs" />
+    <Compile Include="Migrations\202005031521574__Nine.designer.cs">
+      <DependentUpon>202005031521574__Nine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005031525261__Ten.cs" />
+    <Compile Include="Migrations\202005031525261__Ten.designer.cs">
+      <DependentUpon>202005031525261__Ten.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ModelContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -126,6 +134,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005021407443__Eight.resx">
       <DependentUpon>202005021407443__Eight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005031521574__Nine.resx">
+      <DependentUpon>202005031521574__Nine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005031525261__Ten.resx">
+      <DependentUpon>202005031525261__Ten.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

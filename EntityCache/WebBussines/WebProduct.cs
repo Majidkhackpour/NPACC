@@ -8,6 +8,7 @@ namespace EntityCache.WebBussines
         public Guid Guid { get; set; }
         public DateTime Modified { get; set; }
         public string Code { get; set; }
+        public string HalfCode { get; set; }
         public string Name { get; set; }
         public Guid GroupGuid { get; set; }
         public decimal Price { get; set; }

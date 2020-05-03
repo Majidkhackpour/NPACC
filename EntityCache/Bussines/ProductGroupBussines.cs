@@ -94,5 +94,6 @@ namespace EntityCache.Bussines
         public static async Task<int> ChildCount(Guid guid) => await UnitOfWork.ProductGroup.ChildCount(guid);
 
         public static async Task<string> NextCode() => await UnitOfWork.ProductGroup.NextCode();
+
     }
 }
