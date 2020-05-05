@@ -14,5 +14,6 @@ namespace EntityCache.Core
         Task<List<T>> GetAllAsync();
         Task<ReturnedSaveFuncInfo> SaveAsync(T item, string tranName);
         Task<ReturnedSaveFuncInfo> RemoveRangeAsync(IEnumerable<Guid> items, string tranName);
+        Task<ReturnedSaveFuncInfo> SaveRangeAsync(IEnumerable<T> items, string tranName);
     }
 }

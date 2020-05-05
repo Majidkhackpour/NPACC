@@ -40,7 +40,7 @@ namespace EntityCache.Persistence
             try
             {
                 var all = await GetAllAsync();
-                var code = all.ToList()?.Max(q => int.Parse(q.Code)) ?? 0;
+                var code = all.ToList()?.Max(q => int.Parse(q.HalfCode)) ?? 0;
                 code += 1;
                 var new_code = code.ToString();
                 if (code < 10)

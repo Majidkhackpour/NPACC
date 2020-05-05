@@ -116,10 +116,31 @@ namespace EntityCache.Persistence
             {
                 foreach (var item in items)
                 {
-                    var ret = _dbContext.Set<U>().AsNoTracking().FirstOrDefault(p => p.Guid == item);
-                    if (ret == null) continue;
-                    _dbContext.Set<U>().Attach(ret);
-                    _dbContext.Entry(ret).State = EntityState.Deleted;
+                    var ret = _dbContext.Set<U>().FirstOrDefault(p => p.Guid == item);
+                    if (ret == null) return new ReturnedSaveFuncInfo();
+                    if (_dbContext.Entry(ret).State == EntityState.Detached)
+                        _dbSet.Attach(ret);
+                    _dbSet.Remove(ret);
+                }
+
+                await _dbContext.SaveChangesAsync();
+                return new ReturnedSaveFuncInfo();
+            }
+            catch (Exception ex)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(ex);
+                return new ReturnedSaveFuncInfo(ex);
+            }
+        }
+
+        public async Task<ReturnedSaveFuncInfo> SaveRangeAsync(IEnumerable<T> items, string tranName)
+        {
+            try
+            {
+                foreach (var item in items)
+                {
+                    var ret = Mappings.Default.Map<U>(item);
+                    _dbContext.Set<U>().AddOrUpdate(ret);
                 }
 
                 await _dbContext.SaveChangesAsync();

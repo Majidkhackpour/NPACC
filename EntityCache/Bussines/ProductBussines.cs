@@ -12,7 +12,7 @@ namespace EntityCache.Bussines
     public class ProductBussines : IProduct
     {
         public Guid Guid { get; set; }
-        public DateTime Modified { get; set; }
+        public DateTime Modified { get; set; } = DateTime.Now;
         public string Code { get; set; }
         public string HalfCode { get; set; }
         public string Name { get; set; }
@@ -28,7 +28,8 @@ namespace EntityCache.Bussines
         {
             get
             {
-                _imageList = AsyncContext.Run(()=>ProductPicturesBussines.GetAllAsync(Guid));
+                if (_imageList != null) return _imageList;
+                _imageList = AsyncContext.Run(() => ProductPicturesBussines.GetAllAsync(Guid));
                 return _imageList;
             }
             set => _imageList = value;
@@ -54,6 +55,19 @@ namespace EntityCache.Bussines
                 { //BeginTransaction
                 }
 
+                if (ImageList.Count > 0)
+                {
+                    var list = await ProductPicturesBussines.GetAllAsync(Guid);
+                    res.AddReturnedValue(
+                        await UnitOfWork.ProductPictures.RemoveRangeAsync(list.Select(q => q.Guid).ToList(),
+                            tranName));
+                    res.ThrowExceptionIfError();
+
+
+                    res.AddReturnedValue(
+                        await UnitOfWork.ProductPictures.SaveRangeAsync(ImageList, tranName));
+                    res.ThrowExceptionIfError();
+                }
                 res.AddReturnedValue(await UnitOfWork.Product.SaveAsync(this, tranName));
                 res.ThrowExceptionIfError();
                 if (autoTran)
@@ -87,6 +101,12 @@ namespace EntityCache.Bussines
                 if (autoTran)
                 { //BeginTransaction
                 }
+
+                var list = await ProductPicturesBussines.GetAllAsync(Guid);
+                res.AddReturnedValue(
+                    await UnitOfWork.ProductPictures.RemoveRangeAsync(list.Select(q => q.Guid).ToList(),
+                        tranName));
+                res.ThrowExceptionIfError();
 
                 res.AddReturnedValue(await UnitOfWork.Product.RemoveAsync(Guid, tranName));
                 res.ThrowExceptionIfError();
