@@ -70,6 +70,7 @@
     <Compile Include="Services\Etentions.cs" />
     <Compile Include="Services\PersianNameAttribute.cs" />
     <Compile Include="Services\ReturnedSaveFuncInfo.cs" />
+    <Compile Include="Services\SendEmail.cs" />
     <Compile Include="Services\SendErrorToTelegram.cs" />
     <Compile Include="Services\WebErrorLog.cs" />
   </ItemGroup>
