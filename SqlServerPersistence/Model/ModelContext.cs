@@ -24,5 +24,7 @@ namespace SqlServerPersistence.Model
         public virtual DbSet<Simcard> Simcard { get; set; }
         public virtual DbSet<DivarCategory> DivarCategory { get; set; }
         public virtual DbSet<ChatNumbers> ChatNumbers { get; set; }
+        public virtual DbSet<Rolles> Rolles { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

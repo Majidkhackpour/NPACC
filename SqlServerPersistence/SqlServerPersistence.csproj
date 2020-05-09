@@ -61,7 +61,9 @@
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ProductGroup.cs" />
     <Compile Include="Entities\ProductPictures.cs" />
+    <Compile Include="Entities\Rolles.cs" />
     <Compile Include="Entities\Simcard.cs" />
+    <Compile Include="Entities\Users.cs" />
     <Compile Include="Migrations\202004251624194__One.cs" />
     <Compile Include="Migrations\202004251624194__One.designer.cs">
       <DependentUpon>202004251624194__One.cs</DependentUpon>
@@ -102,6 +104,10 @@
     <Compile Include="Migrations\202005031525261__Ten.designer.cs">
       <DependentUpon>202005031525261__Ten.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005071219453__Eleven.cs" />
+    <Compile Include="Migrations\202005071219453__Eleven.designer.cs">
+      <DependentUpon>202005071219453__Eleven.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ModelContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005031525261__Ten.resx">
       <DependentUpon>202005031525261__Ten.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005071219453__Eleven.resx">
+      <DependentUpon>202005071219453__Eleven.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

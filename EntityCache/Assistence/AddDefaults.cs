@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using EntityCache.Bussines;
 using PacketParser.Services;
@@ -6,7 +7,7 @@ using SqlServerPersistence.Model;
 
 namespace EntityCache.Assistence
 {
-   public class AddDefaults
+    public class AddDefaults
     {
         public static async Task InsertDefaultDataAsync()
         {
@@ -25,6 +26,30 @@ namespace EntityCache.Assistence
                     ParentGuid = Guid.Empty
                 };
                 res.AddReturnedValue(await cusGroup.SaveAsync());
+                res.ThrowExceptionIfError();
+            }
+            #endregion
+
+            #region Rolles
+            var allRolles = await RolleBussines.GetAllAsync();
+            var _roolesList = new List<RolleBussines>();
+            if (allRolles.Count <= 0)
+            {
+                var rolle1 = new RolleBussines()
+                {
+                    Guid = Guid.NewGuid(),
+                    RolleName = "User",
+                    RolleTitle = "کاربر عادی"
+                };
+                var rolle2 = new RolleBussines()
+                {
+                    Guid = Guid.NewGuid(),
+                    RolleName = "Admin",
+                    RolleTitle = "مدیر کل سیستم"
+                };
+                _roolesList.Add(rolle1);
+                _roolesList.Add(rolle2);
+                res.AddReturnedValue(await RolleBussines.SaveRangeAsync(_roolesList));
                 res.ThrowExceptionIfError();
             }
             #endregion

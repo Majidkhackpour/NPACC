@@ -92,7 +92,9 @@
     <Compile Include="Bussines\ProductBussines.cs" />
     <Compile Include="Bussines\ProductGroupBussines.cs" />
     <Compile Include="Bussines\ProductPicturesBussines.cs" />
+    <Compile Include="Bussines\RolleBussines.cs" />
     <Compile Include="Bussines\SimcardBussines.cs" />
+    <Compile Include="Bussines\UserBussines.cs" />
     <Compile Include="Core\IChatNumberRepository.cs" />
     <Compile Include="Core\ICustomerGroupRepository.cs" />
     <Compile Include="Core\ICustomerRepository.cs" />
@@ -101,7 +103,9 @@
     <Compile Include="Core\IProductPicturesRepository.cs" />
     <Compile Include="Core\IProductRepository.cs" />
     <Compile Include="Core\IRepository.cs" />
+    <Compile Include="Core\IRolleRepository.cs" />
     <Compile Include="Core\ISimcardRepository.cs" />
+    <Compile Include="Core\IUserRepository.cs" />
     <Compile Include="Persistence\ChatNumberPersitenceRepository.cs" />
     <Compile Include="Persistence\CustomerGroupPersistenceRepository.cs" />
     <Compile Include="Persistence\CustomerPersistenceRepository.cs" />
@@ -110,7 +114,9 @@
     <Compile Include="Persistence\ProductGroupPersisteceRepository.cs" />
     <Compile Include="Persistence\ProductPersistenceRepository.cs" />
     <Compile Include="Persistence\ProductPicturesPersitenceRepository.cs" />
+    <Compile Include="Persistence\RollesPersistenceRepository.cs" />
     <Compile Include="Persistence\SimcardPersistenceRepository.cs" />
+    <Compile Include="Persistence\UsersPersistenceRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Assistence\UnitOfWork.cs" />
     <Compile Include="WebBussines\WebChatNumbers.cs" />
@@ -120,7 +126,9 @@
     <Compile Include="WebBussines\WebProduct.cs" />
     <Compile Include="WebBussines\WebProductGroup.cs" />
     <Compile Include="WebBussines\WebProductPictures.cs" />
+    <Compile Include="WebBussines\WebRolles.cs" />
     <Compile Include="WebBussines\WebSimcard.cs" />
+    <Compile Include="WebBussines\WebUsers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

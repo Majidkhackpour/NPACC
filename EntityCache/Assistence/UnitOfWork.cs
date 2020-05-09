@@ -16,6 +16,8 @@ namespace EntityCache.Assistence
         private static ISimcardRepository _simcardRepository;
         private static IChatNumberRepository _chatNumberRepository;
         private static IDivarCategoryRepository _divarCategoryRepository;
+        private static IRolleRepository _rollesRepository;
+        private static IUserRepository _usersRepository;
 
 
         public static void Dispose()
@@ -59,5 +61,13 @@ namespace EntityCache.Assistence
         public static IDivarCategoryRepository DivarCategory => _divarCategoryRepository ??
                                                                     (_divarCategoryRepository =
                                                                         new DivarCategoreyPersistenceRepository(db));
+
+        public static IRolleRepository Rolles => _rollesRepository ??
+                                                           (_rollesRepository =
+                                                               new RollesPersistenceRepository(db));
+
+        public static IUserRepository Users => _usersRepository ??
+                                                                (_usersRepository =
+                                                                    new UsersPersistenceRepository(db));
     }
 }

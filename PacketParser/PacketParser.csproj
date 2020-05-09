@@ -60,7 +60,9 @@
     <Compile Include="EntitiesInterface\IProduct.cs" />
     <Compile Include="EntitiesInterface\IProductGroup.cs" />
     <Compile Include="EntitiesInterface\IProductPictures.cs" />
+    <Compile Include="EntitiesInterface\IRolles.cs" />
     <Compile Include="EntitiesInterface\ISimcard.cs" />
+    <Compile Include="EntitiesInterface\IUsers.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Calendar.cs" />
