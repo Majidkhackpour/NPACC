@@ -61,5 +61,38 @@ namespace EntityCache.Persistence
                 return null;
             }
         }
+
+        public async Task<UserBussines> AuthenticationUser(string email, string hashPass)
+        {
+            try
+            {
+                var acc = db.Users.AsNoTracking()
+                    .SingleOrDefault(q => q.Email == email.Trim().ToLower() && q.Password == hashPass);
+                var map = Mappings.Default.Map<UserBussines>(acc);
+                return map;
+            }
+            catch (Exception exception)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(exception);
+                return null;
+            }
+        }
+
+        public async Task<string[]> GetAllRollesAsync(string userName)
+        {
+            try
+            {
+                var acc = db.Users.AsNoTracking()
+                    .SingleOrDefault(q => q.UserName == userName);
+                var rolles = db.Rolles.AsNoTracking().Where(q => q.Guid == acc.RolleGuid).Select(q => q.RolleName)
+                    .ToArray();
+                return rolles;
+            }
+            catch (Exception exception)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(exception);
+                return null;
+            }
+        }
     }
 }

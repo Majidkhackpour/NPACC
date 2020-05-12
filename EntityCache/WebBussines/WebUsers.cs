@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using EntityCache.Assistence;
 using EntityCache.Bussines;
+using Nito.AsyncEx;
 using PacketParser.EntitiesInterface;
 using PacketParser.Services;
 
@@ -11,6 +13,7 @@ namespace EntityCache.WebBussines
 {
     public class WebUsers : IUsers
     {
+        [Key]
         public Guid Guid { get; set; }
         public DateTime Modified { get; set; }
         [DisplayName("نام و نام خانوادگی")]
@@ -31,6 +34,9 @@ namespace EntityCache.WebBussines
         public string ActiveCode { get; set; }
         public bool IsActive { get; set; }
         public DateTime RegisterDate { get; set; }
+        [DisplayName("مرا به خاطر بسپار")]
+        public bool RememberMe { get; set; }
+
         [DisplayName("تکرار کلمه عبور")]
         [Required(ErrorMessage = "لطفا {0} را وارد نمایید")]
         [DataType(DataType.Password)]
@@ -41,6 +47,21 @@ namespace EntityCache.WebBussines
             await UnitOfWork.Users.CheckEmail(guid, email);
 
         public static Guid GetRolleGuid(string rolleName) => UnitOfWork.Users.GetRolleGuid(rolleName);
+
+        public static List<WebUsers> GetAll()
+        {
+            try
+            {
+                var list = AsyncContext.Run(UserBussines.GetAllAsync);
+                var mapList = Mappings.Default.Map<List<WebUsers>>(list);
+                return mapList;
+            }
+            catch (Exception ex)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(ex);
+                return null;
+            }
+        }
 
     }
 }

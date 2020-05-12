@@ -108,6 +108,10 @@
     <Compile Include="Migrations\202005071219453__Eleven.designer.cs">
       <DependentUpon>202005071219453__Eleven.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005111420117__Towelve.cs" />
+    <Compile Include="Migrations\202005111420117__Towelve.designer.cs">
+      <DependentUpon>202005111420117__Towelve.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ModelContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -149,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005071219453__Eleven.resx">
       <DependentUpon>202005071219453__Eleven.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005111420117__Towelve.resx">
+      <DependentUpon>202005111420117__Towelve.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

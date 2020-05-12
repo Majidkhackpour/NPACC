@@ -26,5 +26,6 @@ namespace SqlServerPersistence.Model
         public virtual DbSet<ChatNumbers> ChatNumbers { get; set; }
         public virtual DbSet<Rolles> Rolles { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+
     }
 }

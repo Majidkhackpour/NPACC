@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EntityCache.Bussines;
+using EntityCache.WebBussines;
 using SqlServerPersistence.Entities;
 
 namespace EntityCache.Assistence
@@ -18,6 +19,7 @@ namespace EntityCache.Assistence
             CreateMap<ChatNumbers, ChatNumberBussines>().ReverseMap();
             CreateMap<Rolles, RolleBussines>().ReverseMap();
             CreateMap<Users, UserBussines>().ReverseMap();
+            CreateMap<UserBussines, WebUsers>().ReverseMap();
         }
     }
 }

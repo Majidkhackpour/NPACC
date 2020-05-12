@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using EntityCache.Assistence;
+using Nito.AsyncEx;
 using PacketParser.EntitiesInterface;
 using PacketParser.Services;
 
@@ -18,6 +20,7 @@ namespace EntityCache.Bussines
         public string ActiveCode { get; set; }
         public bool IsActive { get; set; }
         public DateTime RegisterDate { get; set; }
+        public bool RememberMe { get; set; }
 
         public async Task<ReturnedSaveFuncInfo> SaveAsync(string tranName = "")
         {
@@ -51,5 +54,15 @@ namespace EntityCache.Bussines
 
         public static async Task<UserBussines> GetAsync(string activeCode) =>
             await UnitOfWork.Users.GetAsync(activeCode);
+
+        public static async Task<UserBussines> AuthenticationUserAsync(string email, string hashPass) =>
+            await UnitOfWork.Users.AuthenticationUser(email, hashPass);
+
+        public static async Task<string[]> GetAllRollesAsync(string userName) =>
+            await UnitOfWork.Users.GetAllRollesAsync(userName);
+
+        public static string[] GetAllRolles(string userName) => AsyncContext.Run(() => GetAllRollesAsync(userName));
+
+        public static async Task<List<UserBussines>> GetAllAsync() => await UnitOfWork.Users.GetAllAsync();
     }
 }

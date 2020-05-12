@@ -9,5 +9,7 @@ namespace EntityCache.Core
         Task<bool> CheckEmail(Guid guid, string email);
         Guid GetRolleGuid(string rolleName);
         Task<UserBussines> GetAsync(string activeCode);
+        Task<UserBussines> AuthenticationUser(string email, string hashPass);
+        Task<string[]> GetAllRollesAsync(string userName);
     }
 }

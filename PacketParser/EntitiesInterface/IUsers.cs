@@ -12,5 +12,6 @@ namespace PacketParser.EntitiesInterface
         string ActiveCode { get; set; }
         bool IsActive { get; set; }
         DateTime RegisterDate { get; set; }
+        bool RememberMe { get; set; }
     }
 }

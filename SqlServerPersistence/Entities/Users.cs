@@ -25,5 +25,6 @@ namespace SqlServerPersistence.Entities
         public string ActiveCode { get; set; }
         public bool IsActive { get; set; }
         public DateTime RegisterDate { get; set; }
+        public bool RememberMe { get; set; }
     }
 }
