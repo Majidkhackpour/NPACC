@@ -102,4 +102,12 @@ namespace PacketParser
         Severe = 0x00000002,
         Critical = 0x00000003
     }
+    public enum EnCreateDataBase
+    {
+        Unknown = 0,
+        ServerConnectionStringError = 1,
+        DatabaseNameEmpty = 2,
+        DatabaseExists = 3,
+        Success = 4
+    }
 }
