@@ -64,5 +64,11 @@ namespace EntityCache.Bussines
         public static string[] GetAllRolles(string userName) => AsyncContext.Run(() => GetAllRollesAsync(userName));
 
         public static async Task<List<UserBussines>> GetAllAsync() => await UnitOfWork.Users.GetAllAsync();
+
+        public static async Task<UserBussines> GetAsyncByEmail(string email) =>
+            await UnitOfWork.Users.GetAsyncByEmail(email);
+
+        public static async Task<UserBussines> GetAsyncByUserName(string uName) =>
+            await UnitOfWork.Users.GetAsyncByUserName(uName);
     }
 }

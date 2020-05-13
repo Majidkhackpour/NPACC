@@ -94,5 +94,33 @@ namespace EntityCache.Persistence
                 return null;
             }
         }
+
+        public async Task<UserBussines> GetAsyncByEmail(string email)
+        {
+            try
+            {
+                var acc = db.Users.AsNoTracking().SingleOrDefault(q => q.Email == email.Trim().ToLower());
+                return Mappings.Default.Map<UserBussines>(acc);
+            }
+            catch (Exception ex)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(ex);
+                return null;
+            }
+        }
+
+        public async Task<UserBussines> GetAsyncByUserName(string uName)
+        {
+            try
+            {
+                var acc = db.Users.AsNoTracking().Single(q => q.UserName == uName);
+                return Mappings.Default.Map<UserBussines>(acc);
+            }
+            catch (Exception ex)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(ex);
+                return null;
+            }
+        }
     }
 }

@@ -11,5 +11,7 @@ namespace EntityCache.Core
         Task<UserBussines> GetAsync(string activeCode);
         Task<UserBussines> AuthenticationUser(string email, string hashPass);
         Task<string[]> GetAllRollesAsync(string userName);
+        Task<UserBussines> GetAsyncByEmail(string email);
+        Task<UserBussines> GetAsyncByUserName(string uName);
     }
 }
