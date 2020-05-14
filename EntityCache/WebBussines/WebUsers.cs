@@ -32,7 +32,9 @@ namespace EntityCache.WebBussines
         [EmailAddress(ErrorMessage = "ایمیل وارد شده معتبر نمی باشد")]
         public string Email { get; set; }
         public string ActiveCode { get; set; }
+        [DisplayName("وضعیت")]
         public bool IsActive { get; set; }
+        [DisplayName("تاریخ ثبت نام")]
         public DateTime RegisterDate { get; set; }
         [DisplayName("مرا به خاطر بسپار")]
         public bool RememberMe { get; set; }
@@ -43,10 +45,19 @@ namespace EntityCache.WebBussines
         [Compare("Password", ErrorMessage = "کلمه های عبور مغایرت دارند")]
         public string RePassword { get; set; }
 
+        [DisplayName("عنوان نقش")]
+        public string RolleName => AsyncContext.Run(() => RolleBussines.GetAsync(RolleGuid)).RolleTitle;
+        [DisplayName("تاریخ ثبت نام")]
+        public string DateSh => Calendar.MiladiToShamsi(RegisterDate);
+        [DisplayName("کاربر به عنوان ادمین فعال باشد")]
+        public bool IsAdmin { get; set; }
+        
+
         public static async Task<bool> CheckEmail(Guid guid, string email) =>
             await UnitOfWork.Users.CheckEmail(guid, email);
 
         public static Guid GetRolleGuid(string rolleName) => UnitOfWork.Users.GetRolleGuid(rolleName);
+
 
         public static List<WebUsers> GetAll()
         {
@@ -61,6 +72,37 @@ namespace EntityCache.WebBussines
                 WebErrorLog.ErrorInstence.StartErrorLog(ex);
                 return null;
             }
+        }
+
+        public static WebUsers Get(Guid guid)
+        {
+            try
+            {
+                try
+                {
+                    var list = AsyncContext.Run(() => UserBussines.GetAsync(guid));
+                    var mapList = Mappings.Default.Map<WebUsers>(list);
+                    return mapList;
+                }
+                catch (Exception ex)
+                {
+                    WebErrorLog.ErrorInstence.StartErrorLog(ex);
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(ex);
+                return null;
+            }
+        }
+
+        public ReturnedSaveFuncInfo Remove()
+        {
+            var user = AsyncContext.Run(() => UserBussines.GetAsync(Guid));
+            var res = new ReturnedSaveFuncInfo();
+            res.AddReturnedValue(AsyncContext.Run(() => user.RemoveAsync()));
+            return res;
         }
 
     }

@@ -20,6 +20,7 @@ namespace EntityCache.Assistence
             CreateMap<Rolles, RolleBussines>().ReverseMap();
             CreateMap<Users, UserBussines>().ReverseMap();
             CreateMap<UserBussines, WebUsers>().ReverseMap();
+            CreateMap<ProductGroupBussines, WebProductGroup>().ReverseMap();
         }
     }
 }

@@ -52,6 +52,7 @@ namespace EntityCache.Bussines
             return res;
         }
 
+        public ReturnedSaveFuncInfo Save(string tranName = "") => AsyncContext.Run(() => SaveAsync(tranName));
         public static async Task<UserBussines> GetAsync(string activeCode) =>
             await UnitOfWork.Users.GetAsync(activeCode);
 
@@ -70,5 +71,40 @@ namespace EntityCache.Bussines
 
         public static async Task<UserBussines> GetAsyncByUserName(string uName) =>
             await UnitOfWork.Users.GetAsyncByUserName(uName);
+
+        public static async Task<UserBussines> GetAsync(Guid guid) => await UnitOfWork.Users.GetAsync(guid);
+
+        public async Task<ReturnedSaveFuncInfo> RemoveAsync(string tranName = "")
+        {
+            var res = new ReturnedSaveFuncInfo();
+            var autoTran = string.IsNullOrEmpty(tranName);
+            if (autoTran) tranName = Guid.NewGuid().ToString();
+            try
+            {
+                if (autoTran)
+                { //BeginTransaction
+                }
+
+                res.AddReturnedValue(await UnitOfWork.Users.RemoveAsync(Guid, tranName));
+                res.ThrowExceptionIfError();
+                if (autoTran)
+                {
+                    //CommitTransAction
+                }
+            }
+            catch (Exception ex)
+            {
+                if (autoTran)
+                {
+                    //RollBackTransAction
+                }
+                WebErrorLog.ErrorInstence.StartErrorLog(ex);
+                res.AddReturnedValue(ex);
+            }
+
+            return res;
+        }
+
+        public static UserBussines Get(Guid guid) => AsyncContext.Run(() => GetAsync(guid));
     }
 }

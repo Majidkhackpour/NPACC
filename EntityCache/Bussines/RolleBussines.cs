@@ -47,5 +47,7 @@ namespace EntityCache.Bussines
 
             return res;
         }
+
+        public static async Task<RolleBussines> GetAsync(Guid guid) => await UnitOfWork.Rolles.GetAsync(guid);
     }
 }
