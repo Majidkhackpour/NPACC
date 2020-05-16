@@ -1,13 +1,13 @@
 ﻿using System;
 using PacketParser.EntitiesInterface;
 
-namespace EntityCache.WebBussines
+namespace EntityCache.Bussines
 {
-    public class WebProductPictures : IProductPictures
+    public class PrdSelectedGroupBussines : IPrdSelectedGroup
     {
         public Guid Guid { get; set; }
         public DateTime Modified { get; set; }
-        public string ImageName { get; set; }
         public Guid PrdGuid { get; set; }
+        public Guid GroupGuid { get; set; }
     }
 }

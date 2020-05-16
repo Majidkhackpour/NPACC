@@ -57,6 +57,8 @@
     <Compile Include="EntitiesInterface\ICustomerGroup.cs" />
     <Compile Include="EntitiesInterface\IDivarCategory.cs" />
     <Compile Include="EntitiesInterface\IHasGuid.cs" />
+    <Compile Include="EntitiesInterface\IPrdSelectedGroup.cs" />
+    <Compile Include="EntitiesInterface\IPrdTag.cs" />
     <Compile Include="EntitiesInterface\IProduct.cs" />
     <Compile Include="EntitiesInterface\IProductGroup.cs" />
     <Compile Include="EntitiesInterface\IProductPictures.cs" />

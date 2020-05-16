@@ -1,13 +1,15 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using PacketParser.EntitiesInterface;
 
-namespace EntityCache.WebBussines
+namespace SqlServerPersistence.Entities
 {
-    public class WebProductPictures : IProductPictures
+    public class PrdSelectedGroup : IPrdSelectedGroup
     {
+        [Key]
         public Guid Guid { get; set; }
         public DateTime Modified { get; set; }
-        public string ImageName { get; set; }
         public Guid PrdGuid { get; set; }
+        public Guid GroupGuid { get; set; }
     }
 }

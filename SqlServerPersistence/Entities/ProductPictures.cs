@@ -9,8 +9,8 @@ namespace SqlServerPersistence.Entities
         [Key]
         public Guid Guid { get; set; }
         public DateTime Modified { get; set; }
-        [MaxLength(400)]
-        public string Path { get; set; }
+        [MaxLength(50)]
+        public string ImageName { get; set; }
         public Guid PrdGuid { get; set; }
     }
 }

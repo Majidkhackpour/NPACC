@@ -3,11 +3,11 @@ using PacketParser.EntitiesInterface;
 
 namespace EntityCache.WebBussines
 {
-    public class WebProductPictures : IProductPictures
+    public class WebPrdSelectedGroup : IPrdSelectedGroup
     {
         public Guid Guid { get; set; }
         public DateTime Modified { get; set; }
-        public string ImageName { get; set; }
         public Guid PrdGuid { get; set; }
+        public Guid GroupGuid { get; set; }
     }
 }

@@ -43,5 +43,19 @@ namespace EntityCache.WebBussines
                 return null;
             }
         }
+        public static WebProductGroup Get(Guid guid)
+        {
+            try
+            {
+                var list = AsyncContext.Run(() => ProductGroupBussines.GetAsync(guid));
+                var mapList = Mappings.Default.Map<WebProductGroup>(list);
+                return mapList;
+            }
+            catch (Exception ex)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(ex);
+                return null;
+            }
+        }
     }
 }

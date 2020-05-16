@@ -18,6 +18,8 @@ namespace EntityCache.Assistence
         private static IDivarCategoryRepository _divarCategoryRepository;
         private static IRolleRepository _rollesRepository;
         private static IUserRepository _usersRepository;
+        private static IPrdSelectedGroupRepository _prdSelectedGroupRepository;
+        private static IPrdTagRepository _prdTagRepository;
 
 
         public static void Dispose()
@@ -69,5 +71,14 @@ namespace EntityCache.Assistence
         public static IUserRepository Users => _usersRepository ??
                                                                 (_usersRepository =
                                                                     new UsersPersistenceRepository(db));
+
+        public static IPrdSelectedGroupRepository PrdSelectedGroup => _prdSelectedGroupRepository ??
+                                                                      (_prdSelectedGroupRepository =
+                                                                          new PrdSelectedGroupPersistenceRepository(db)
+                                                                      );
+
+        public static IPrdTagRepository PrdTag => _prdTagRepository ??
+                                                  (_prdTagRepository =
+                                                      new PrdTagPersistenceRepository(db));
     }
 }

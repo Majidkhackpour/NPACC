@@ -84,7 +84,6 @@ namespace EntityCache.Persistence
                 var Tu = typeof(U);
                 var ret = _dbContext.Set<U>().AsNoTracking().ToList();
                 return Mappings.Default.Map<List<T>>(ret);
-
             }
             catch (Exception ex)
             {

@@ -21,6 +21,8 @@ namespace EntityCache.Assistence
             CreateMap<Users, UserBussines>().ReverseMap();
             CreateMap<UserBussines, WebUsers>().ReverseMap();
             CreateMap<ProductGroupBussines, WebProductGroup>().ReverseMap();
+            CreateMap<PrdSelectedGroup, PrdSelectedGroupBussines>().ReverseMap();
+            CreateMap<PrdTag, PrdTagBussines>().ReverseMap();
         }
     }
 }

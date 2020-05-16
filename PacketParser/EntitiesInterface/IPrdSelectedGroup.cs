@@ -2,9 +2,9 @@
 
 namespace PacketParser.EntitiesInterface
 {
-    public interface IProductPictures : IHasGuid
+    public interface IPrdSelectedGroup : IHasGuid
     {
-        string ImageName { get; set; }
         Guid PrdGuid { get; set; }
+        Guid GroupGuid { get; set; }
     }
 }

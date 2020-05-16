@@ -8,11 +8,12 @@ namespace EntityCache.WebBussines
         public Guid Guid { get; set; }
         public DateTime Modified { get; set; }
         public string Code { get; set; }
-        public string HalfCode { get; set; }
         public string Name { get; set; }
-        public Guid GroupGuid { get; set; }
+        public DateTime CreateDate { get; set; }
+        public string ImageName { get; set; }
         public decimal Price { get; set; }
         public string Description { get; set; }
+        public string ShortDesc { get; set; }
         public string Abad { get; set; }
         public string Kind { get; set; }
         public string Color { get; set; }
