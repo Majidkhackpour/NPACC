@@ -24,7 +24,8 @@ namespace EntityCache.Bussines
         public string Kind { get; set; }
         public string Color { get; set; }
         private List<ProductPicturesBussines> _imageList;
-
+        private List<PrdSelectedGroupBussines> _groupList;
+        private List<PrdTagBussines> _tagsList;
         public List<ProductPicturesBussines> ImageList
         {
             get
@@ -34,6 +35,26 @@ namespace EntityCache.Bussines
                 return _imageList;
             }
             set => _imageList = value;
+        }
+        public List<PrdSelectedGroupBussines> GroupList
+        {
+            get
+            {
+                if (_groupList != null) return _groupList;
+                _groupList = AsyncContext.Run(() => PrdSelectedGroupBussines.GetAllAsync(Guid));
+                return _groupList;
+            }
+            set => _groupList = value;
+        }
+        public List<PrdTagBussines> TagsList
+        {
+            get
+            {
+                if (_tagsList != null) return _tagsList;
+                _tagsList = AsyncContext.Run(() => PrdTagBussines.GetAllAsync(Guid));
+                return _tagsList;
+            }
+            set => _tagsList = value;
         }
 
         public static async Task<List<ProductBussines>> GetAllAsync() =>
@@ -69,6 +90,39 @@ namespace EntityCache.Bussines
                         await UnitOfWork.ProductPictures.SaveRangeAsync(ImageList, tranName));
                     res.ThrowExceptionIfError();
                 }
+
+
+
+                if (GroupList.Count > 0)
+                {
+                    var list = await PrdSelectedGroupBussines.GetAllAsync(Guid);
+                    res.AddReturnedValue(
+                        await UnitOfWork.PrdSelectedGroup.RemoveRangeAsync(list.Select(q => q.Guid).ToList(),
+                            tranName));
+                    res.ThrowExceptionIfError();
+
+
+                    res.AddReturnedValue(
+                        await UnitOfWork.PrdSelectedGroup.SaveRangeAsync(GroupList, tranName));
+                    res.ThrowExceptionIfError();
+                }
+
+
+
+                if (TagsList.Count > 0)
+                {
+                    var list = await PrdTagBussines.GetAllAsync(Guid);
+                    res.AddReturnedValue(
+                        await UnitOfWork.PrdTag.RemoveRangeAsync(list.Select(q => q.Guid).ToList(),
+                            tranName));
+                    res.ThrowExceptionIfError();
+
+
+                    res.AddReturnedValue(
+                        await UnitOfWork.PrdTag.SaveRangeAsync(TagsList, tranName));
+                    res.ThrowExceptionIfError();
+                }
+
                 res.AddReturnedValue(await UnitOfWork.Product.SaveAsync(this, tranName));
                 res.ThrowExceptionIfError();
                 if (autoTran)

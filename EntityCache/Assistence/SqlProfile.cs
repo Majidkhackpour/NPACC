@@ -23,6 +23,9 @@ namespace EntityCache.Assistence
             CreateMap<ProductGroupBussines, WebProductGroup>().ReverseMap();
             CreateMap<PrdSelectedGroup, PrdSelectedGroupBussines>().ReverseMap();
             CreateMap<PrdTag, PrdTagBussines>().ReverseMap();
+            CreateMap<ProductBussines, WebProduct>().ReverseMap();
+            CreateMap<PrdSelectedGroupBussines, WebPrdSelectedGroup>().ReverseMap();
+            CreateMap<ProductPicturesBussines, WebProductPictures>().ReverseMap();
         }
     }
 }

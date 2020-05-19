@@ -12,5 +12,7 @@ namespace SqlServerPersistence.Entities
         [MaxLength(50)]
         public string ImageName { get; set; }
         public Guid PrdGuid { get; set; }
+        [MaxLength(250)]
+        public string Title { get; set; }
     }
 }

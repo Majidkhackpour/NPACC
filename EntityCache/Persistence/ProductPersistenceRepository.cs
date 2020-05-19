@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EntityCache.Assistence;
 using EntityCache.Bussines;
 using EntityCache.Core;
 using PacketParser.Services;
@@ -64,7 +63,7 @@ namespace EntityCache.Persistence
             catch (Exception exception)
             {
                 WebErrorLog.ErrorInstence.StartErrorLog(exception);
-                return "0001";
+                return "1001";
             }
         }
 
