@@ -20,11 +20,5 @@ namespace SqlServerPersistence.Entities
         public string Description { get; set; }
         [MaxLength(350)]
         public string ShortDesc { get; set; }
-        [MaxLength(30)]
-        public string Abad { get; set; }
-        [MaxLength(100)]
-        public string Kind { get; set; }
-        [MaxLength(100)]
-        public string Color { get; set; }
     }
 }

@@ -28,6 +28,8 @@ namespace SqlServerPersistence.Model
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<PrdSelectedGroup> PrdSelectedGroup { get; set; }
         public virtual DbSet<PrdTag> PrdTag { get; set; }
+        public virtual DbSet<Features> Features { get; set; }
+        public virtual DbSet<PrdFeatures> PrdFeatures { get; set; }
 
     }
 }

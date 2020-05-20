@@ -36,12 +36,7 @@ namespace EntityCache.WebBussines
         [DataType(DataType.MultilineText)]
         [Required(ErrorMessage = "لطفا {0} را وارد نمایید")]
         public string ShortDesc { get; set; }
-        [DisplayName("ابعاد")]
-        public string Abad { get; set; }
-        [DisplayName("جنس")]
-        public string Kind { get; set; }
-        [DisplayName("رنگ")]
-        public string Color { get; set; }
+
 
 
         private List<ProductPicturesBussines> _imageList;

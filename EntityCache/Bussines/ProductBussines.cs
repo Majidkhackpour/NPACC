@@ -20,12 +20,10 @@ namespace EntityCache.Bussines
         public decimal Price { get; set; }
         public string Description { get; set; }
         public string ShortDesc { get; set; }
-        public string Abad { get; set; }
-        public string Kind { get; set; }
-        public string Color { get; set; }
         private List<ProductPicturesBussines> _imageList;
         private List<PrdSelectedGroupBussines> _groupList;
         private List<PrdTagBussines> _tagsList;
+        private List<PrdFeatureBussines> _featureList;
         public List<ProductPicturesBussines> ImageList
         {
             get
@@ -55,6 +53,16 @@ namespace EntityCache.Bussines
                 return _tagsList;
             }
             set => _tagsList = value;
+        }
+        public List<PrdFeatureBussines> FeatureList
+        {
+            get
+            {
+                if (_featureList != null) return _featureList;
+                _featureList = AsyncContext.Run(() => PrdFeatureBussines.GetAllAsync(Guid));
+                return _featureList;
+            }
+            set => _featureList = value;
         }
 
         public static async Task<List<ProductBussines>> GetAllAsync() =>
@@ -201,9 +209,7 @@ namespace EntityCache.Bussines
                         if (!string.IsNullOrEmpty(item) && item.Trim() != "")
                         {
                             res = res.Where(x =>
-                                    x.Name.Contains(item) ||
-                                    x.Kind.Contains(item) ||
-                                    x.Color.Contains(item))
+                                    x.Name.Contains(item))
                                 ?.ToList();
                         }
                     }

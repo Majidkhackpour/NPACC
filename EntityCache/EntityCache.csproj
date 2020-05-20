@@ -111,6 +111,8 @@
     <Compile Include="Bussines\CustomerBussines.cs" />
     <Compile Include="Bussines\CustomerGroupBussines.cs" />
     <Compile Include="Bussines\DivarCategoryBussines.cs" />
+    <Compile Include="Bussines\FeatureBussines.cs" />
+    <Compile Include="Bussines\PrdFeatureBussines.cs" />
     <Compile Include="Bussines\PrdSelectedGroupBussines.cs" />
     <Compile Include="Bussines\PrdTagBussines.cs" />
     <Compile Include="Bussines\ProductBussines.cs" />
@@ -123,6 +125,8 @@
     <Compile Include="Core\ICustomerGroupRepository.cs" />
     <Compile Include="Core\ICustomerRepository.cs" />
     <Compile Include="Core\IDivarCategoryRepository.cs" />
+    <Compile Include="Core\IFeatureRepository.cs" />
+    <Compile Include="Core\IPrdFeatureRepository.cs" />
     <Compile Include="Core\IPrdSelectedGroupRepository.cs" />
     <Compile Include="Core\IPrdTagRepository.cs" />
     <Compile Include="Core\IProductGroupRepository.cs" />
@@ -136,7 +140,9 @@
     <Compile Include="Persistence\CustomerGroupPersistenceRepository.cs" />
     <Compile Include="Persistence\CustomerPersistenceRepository.cs" />
     <Compile Include="Persistence\DivarCategoreyPersistenceRepository.cs" />
+    <Compile Include="Persistence\FeaturePersistenceRepository.cs" />
     <Compile Include="Persistence\GenericRepository.cs" />
+    <Compile Include="Persistence\PrdFeaturePersistenceRepository.cs" />
     <Compile Include="Persistence\PrdSelectedGroupPersistenceRepository.cs" />
     <Compile Include="Persistence\PrdTagPersistenceRepository.cs" />
     <Compile Include="Persistence\ProductGroupPersisteceRepository.cs" />
@@ -151,6 +157,8 @@
     <Compile Include="WebBussines\WebCustomer.cs" />
     <Compile Include="WebBussines\WebCustomerGroup.cs" />
     <Compile Include="WebBussines\WebDivarCategory.cs" />
+    <Compile Include="WebBussines\WebFeature.cs" />
+    <Compile Include="WebBussines\WebPrdFeature.cs" />
     <Compile Include="WebBussines\WebPrdSelectedGroup.cs" />
     <Compile Include="WebBussines\WebPrdTag.cs" />
     <Compile Include="WebBussines\WebProduct.cs" />

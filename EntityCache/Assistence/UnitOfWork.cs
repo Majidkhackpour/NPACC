@@ -20,6 +20,8 @@ namespace EntityCache.Assistence
         private static IUserRepository _usersRepository;
         private static IPrdSelectedGroupRepository _prdSelectedGroupRepository;
         private static IPrdTagRepository _prdTagRepository;
+        private static IFeatureRepository _featureRepository;
+        private static IPrdFeatureRepository _prdFeatureRepository;
 
 
         public static void Dispose()
@@ -80,5 +82,13 @@ namespace EntityCache.Assistence
         public static IPrdTagRepository PrdTag => _prdTagRepository ??
                                                   (_prdTagRepository =
                                                       new PrdTagPersistenceRepository(db));
+
+        public static IFeatureRepository Feature => _featureRepository ??
+                                                    (_featureRepository =
+                                                        new FeaturePersistenceRepository(db));
+
+        public static IPrdFeatureRepository PrdFeature => _prdFeatureRepository ??
+                                                          (_prdFeatureRepository =
+                                                              new PrdFeaturePersistenceRepository(db));
     }
 }

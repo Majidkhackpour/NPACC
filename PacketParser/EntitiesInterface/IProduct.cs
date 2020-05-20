@@ -11,8 +11,5 @@ namespace PacketParser.EntitiesInterface
         decimal Price { get; set; }
         string Description { get; set; }
         string ShortDesc { get; set; }
-        string Abad { get; set; }
-        string Kind { get; set; }
-        string Color { get; set; }
     }
 }
