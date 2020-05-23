@@ -30,6 +30,8 @@ namespace EntityCache.Assistence
             CreateMap<PrdFeatureBussines, PrdFeatures>().ReverseMap();
             CreateMap<PrdFeatureBussines, WebPrdFeature>().ReverseMap();
             CreateMap<FeatureBussines, WebFeature>().ReverseMap();
+            CreateMap<PrdCommentBussines, PrdComment>().ReverseMap();
+            CreateMap<PrdCommentBussines, WebPrdComment>().ReverseMap();
         }
     }
 }

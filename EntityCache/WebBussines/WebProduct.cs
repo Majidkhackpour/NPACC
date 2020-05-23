@@ -42,6 +42,8 @@ namespace EntityCache.WebBussines
         private List<ProductPicturesBussines> _imageList;
         private List<PrdSelectedGroupBussines> _groupList;
         private List<PrdTagBussines> _tagsList;
+        private List<PrdFeatureBussines> _featureList;
+        private List<PrdCommentBussines> _commentList;
         public List<ProductPicturesBussines> ImageList
         {
             get
@@ -72,6 +74,26 @@ namespace EntityCache.WebBussines
             }
             set => _tagsList = value;
         }
+        public List<PrdFeatureBussines> FeatureList
+        {
+            get
+            {
+                if (_featureList != null) return _featureList;
+                _featureList = AsyncContext.Run(() => PrdFeatureBussines.GetAllAsync(Guid));
+                return _featureList;
+            }
+            set => _featureList = value;
+        }
+        public List<PrdCommentBussines> CommentList
+        {
+            get
+            {
+                if (_commentList != null) return _commentList;
+                _commentList = AsyncContext.Run(() => PrdCommentBussines.GetAllAsync(Guid));
+                return _commentList;
+            }
+            set => _commentList = value;
+        }
 
 
         public static List<WebProduct> GetAll()
@@ -95,6 +117,21 @@ namespace EntityCache.WebBussines
             {
                 var prd = ProductBussines.Get(guid);
                 var mapList = Mappings.Default.Map<WebProduct>(prd);
+                return mapList;
+            }
+            catch (Exception ex)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(ex);
+                return null;
+            }
+        }
+
+        public static List<WebProduct> GetAll(string search)
+        {
+            try
+            {
+                var list = AsyncContext.Run(() => ProductBussines.GetAllAsync(search));
+                var mapList = Mappings.Default.Map<List<WebProduct>>(list);
                 return mapList;
             }
             catch (Exception ex)

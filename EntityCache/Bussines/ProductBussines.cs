@@ -24,6 +24,7 @@ namespace EntityCache.Bussines
         private List<PrdSelectedGroupBussines> _groupList;
         private List<PrdTagBussines> _tagsList;
         private List<PrdFeatureBussines> _featureList;
+        private List<PrdCommentBussines> _commentList;
         public List<ProductPicturesBussines> ImageList
         {
             get
@@ -63,6 +64,16 @@ namespace EntityCache.Bussines
                 return _featureList;
             }
             set => _featureList = value;
+        }
+        public List<PrdCommentBussines> CommentList
+        {
+            get
+            {
+                if (_commentList != null) return _commentList;
+                _commentList = AsyncContext.Run(() => PrdCommentBussines.GetAllAsync(Guid));
+                return _commentList;
+            }
+            set => _commentList = value;
         }
 
         public static async Task<List<ProductBussines>> GetAllAsync() =>
@@ -209,12 +220,13 @@ namespace EntityCache.Bussines
                         if (!string.IsNullOrEmpty(item) && item.Trim() != "")
                         {
                             res = res.Where(x =>
-                                    x.Name.Contains(item))
+                                    x.Name.Contains(item) || x.TagsList.Select(q => q.Tag).Contains(item) ||
+                                    x.ShortDesc.Contains(item) || x.Description.Contains(item))
                                 ?.ToList();
                         }
                     }
 
-                res = res?.OrderBy(o => o.Name).ToList();
+                res = res?.Distinct().OrderBy(o => o.Name).ToList();
                 return res;
             }
             catch (OperationCanceledException)

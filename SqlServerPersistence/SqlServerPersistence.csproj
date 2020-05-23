@@ -59,6 +59,7 @@
     <Compile Include="Entities\CustomerGroup.cs" />
     <Compile Include="Entities\DivarCategory.cs" />
     <Compile Include="Entities\Features.cs" />
+    <Compile Include="Entities\PrdComment.cs" />
     <Compile Include="Entities\PrdFeatures.cs" />
     <Compile Include="Entities\PrdSelectedGroup.cs" />
     <Compile Include="Entities\PrdTag.cs" />
@@ -128,6 +129,10 @@
     <Compile Include="Migrations\202005201515290__Fifteen.designer.cs">
       <DependentUpon>202005201515290__Fifteen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005231454473__Sixteen.cs" />
+    <Compile Include="Migrations\202005231454473__Sixteen.designer.cs">
+      <DependentUpon>202005231454473__Sixteen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ModelContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -181,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005201515290__Fifteen.resx">
       <DependentUpon>202005201515290__Fifteen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005231454473__Sixteen.resx">
+      <DependentUpon>202005231454473__Sixteen.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

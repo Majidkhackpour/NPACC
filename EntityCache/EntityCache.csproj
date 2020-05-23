@@ -112,6 +112,7 @@
     <Compile Include="Bussines\CustomerGroupBussines.cs" />
     <Compile Include="Bussines\DivarCategoryBussines.cs" />
     <Compile Include="Bussines\FeatureBussines.cs" />
+    <Compile Include="Bussines\PrdCommentBussines.cs" />
     <Compile Include="Bussines\PrdFeatureBussines.cs" />
     <Compile Include="Bussines\PrdSelectedGroupBussines.cs" />
     <Compile Include="Bussines\PrdTagBussines.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Core\ICustomerRepository.cs" />
     <Compile Include="Core\IDivarCategoryRepository.cs" />
     <Compile Include="Core\IFeatureRepository.cs" />
+    <Compile Include="Core\IPrdCommentRepository.cs" />
     <Compile Include="Core\IPrdFeatureRepository.cs" />
     <Compile Include="Core\IPrdSelectedGroupRepository.cs" />
     <Compile Include="Core\IPrdTagRepository.cs" />
@@ -142,6 +144,7 @@
     <Compile Include="Persistence\DivarCategoreyPersistenceRepository.cs" />
     <Compile Include="Persistence\FeaturePersistenceRepository.cs" />
     <Compile Include="Persistence\GenericRepository.cs" />
+    <Compile Include="Persistence\PrdCommentPersistenceRepository.cs" />
     <Compile Include="Persistence\PrdFeaturePersistenceRepository.cs" />
     <Compile Include="Persistence\PrdSelectedGroupPersistenceRepository.cs" />
     <Compile Include="Persistence\PrdTagPersistenceRepository.cs" />
@@ -153,11 +156,13 @@
     <Compile Include="Persistence\UsersPersistenceRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Assistence\UnitOfWork.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="WebBussines\WebChatNumbers.cs" />
     <Compile Include="WebBussines\WebCustomer.cs" />
     <Compile Include="WebBussines\WebCustomerGroup.cs" />
     <Compile Include="WebBussines\WebDivarCategory.cs" />
     <Compile Include="WebBussines\WebFeature.cs" />
+    <Compile Include="WebBussines\WebPrdComment.cs" />
     <Compile Include="WebBussines\WebPrdFeature.cs" />
     <Compile Include="WebBussines\WebPrdSelectedGroup.cs" />
     <Compile Include="WebBussines\WebPrdTag.cs" />

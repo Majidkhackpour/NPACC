@@ -30,6 +30,7 @@ namespace SqlServerPersistence.Model
         public virtual DbSet<PrdTag> PrdTag { get; set; }
         public virtual DbSet<Features> Features { get; set; }
         public virtual DbSet<PrdFeatures> PrdFeatures { get; set; }
+        public virtual DbSet<PrdComment> PrdComment { get; set; }
 
     }
 }
