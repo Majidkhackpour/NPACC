@@ -126,11 +126,12 @@ namespace EntityCache.WebBussines
             }
         }
 
-        public static List<WebProduct> GetAll(string search)
+        public static List<WebProduct> GetAll(string search, int minPrice = 0, int maxPrice = 0, List<Guid> selectedGrpous = null)
         {
             try
             {
-                var list = AsyncContext.Run(() => ProductBussines.GetAllAsync(search));
+                var list = AsyncContext.Run(() =>
+                    ProductBussines.GetAllAsync(search, minPrice, maxPrice, selectedGrpous));
                 var mapList = Mappings.Default.Map<List<WebProduct>>(list);
                 return mapList;
             }

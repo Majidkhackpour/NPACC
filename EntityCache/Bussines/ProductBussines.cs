@@ -205,7 +205,7 @@ namespace EntityCache.Bussines
 
         public static async Task<string> NextCode() => await UnitOfWork.Product.NextCode();
 
-        public static async Task<List<ProductBussines>> GetAllAsync(string search)
+        public static async Task<List<ProductBussines>> GetAllAsync(string search, int minPrice = 0, int maxPrice = 0, List<Guid> selectedGrpous = null)
         {
             try
             {
@@ -225,6 +225,19 @@ namespace EntityCache.Bussines
                                 ?.ToList();
                         }
                     }
+
+                if (minPrice > 0)
+                    res = res.Where(q => q.Price >= minPrice).ToList();
+                if (maxPrice > 0)
+                    res = res.Where(q => q.Price <= maxPrice).ToList();
+
+                if (selectedGrpous != null && selectedGrpous.Any())
+                {
+                    foreach (var item in selectedGrpous)
+                    {
+                        res = res.Where(q => q.GroupList.Any(w => w.GroupGuid == item)).ToList();
+                    }
+                }
 
                 res = res?.Distinct().OrderBy(o => o.Name).ToList();
                 return res;
