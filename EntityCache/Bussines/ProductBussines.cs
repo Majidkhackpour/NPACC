@@ -230,13 +230,14 @@ namespace EntityCache.Bussines
                     res = res.Where(q => q.Price >= minPrice).ToList();
                 if (maxPrice > 0)
                     res = res.Where(q => q.Price <= maxPrice).ToList();
-
                 if (selectedGrpous != null && selectedGrpous.Any())
                 {
+                    List<ProductBussines> ret = null;
                     foreach (var item in selectedGrpous)
                     {
-                        res = res.Where(q => q.GroupList.Any(w => w.GroupGuid == item)).ToList();
+                        ret = res.Where(q => q.GroupList.Any(w => w.GroupGuid == item)).ToList();
                     }
+                    if (ret != null) res = ret;
                 }
 
                 res = res?.Distinct().OrderBy(o => o.Name).ToList();

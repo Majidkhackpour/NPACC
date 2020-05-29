@@ -31,6 +31,9 @@ namespace SqlServerPersistence.Model
         public virtual DbSet<Features> Features { get; set; }
         public virtual DbSet<PrdFeatures> PrdFeatures { get; set; }
         public virtual DbSet<PrdComment> PrdComment { get; set; }
+        public virtual DbSet<Order> Order { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetail { get; set; }
+        public virtual DbSet<Slider> Slider { get; set; }
 
     }
 }

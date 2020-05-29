@@ -23,6 +23,9 @@ namespace EntityCache.Assistence
         private static IFeatureRepository _featureRepository;
         private static IPrdFeatureRepository _prdFeatureRepository;
         private static IPrdCommentRepository _prdCommentRepository;
+        private static IOrderRepository _orderRepository;
+        private static IOrderDetailRepository _orderDetailRepository;
+        private static ISliderRepository _sliderRepository;
 
 
         public static void Dispose()
@@ -95,5 +98,17 @@ namespace EntityCache.Assistence
         public static IPrdCommentRepository PrdComment => _prdCommentRepository ??
                                                           (_prdCommentRepository =
                                                               new PrdCommentPersistenceRepository(db));
+
+        public static IOrderRepository Order => _orderRepository ??
+                                                          (_orderRepository =
+                                                              new OrderPersistenceRepository(db));
+
+        public static IOrderDetailRepository OrderDetail => _orderDetailRepository ??
+                                                          (_orderDetailRepository =
+                                                              new OrderDetailPersitenceRepository(db));
+
+        public static ISliderRepository Slider => _sliderRepository ??
+                                                            (_sliderRepository =
+                                                                new SliderPersistenceRepository(db));
     }
 }

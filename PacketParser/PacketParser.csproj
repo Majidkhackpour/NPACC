@@ -58,6 +58,8 @@
     <Compile Include="EntitiesInterface\IDivarCategory.cs" />
     <Compile Include="EntitiesInterface\IFeatures.cs" />
     <Compile Include="EntitiesInterface\IHasGuid.cs" />
+    <Compile Include="EntitiesInterface\IOrder.cs" />
+    <Compile Include="EntitiesInterface\IOrderDetail.cs" />
     <Compile Include="EntitiesInterface\IPrdComment.cs" />
     <Compile Include="EntitiesInterface\IPrdFeatures.cs" />
     <Compile Include="EntitiesInterface\IPrdSelectedGroup.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="EntitiesInterface\IProductPictures.cs" />
     <Compile Include="EntitiesInterface\IRolles.cs" />
     <Compile Include="EntitiesInterface\ISimcard.cs" />
+    <Compile Include="EntitiesInterface\ISlider.cs" />
     <Compile Include="EntitiesInterface\IUsers.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

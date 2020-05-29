@@ -79,5 +79,9 @@ namespace EntityCache.Bussines
 
             return res;
         }
+
+
+        public static async Task<List<PrdSelectedGroupBussines>> GetAllAsync() =>
+            await UnitOfWork.PrdSelectedGroup.GetAllAsync();
     }
 }

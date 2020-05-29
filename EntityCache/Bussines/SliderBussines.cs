@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using EntityCache.Assistence;
 using Nito.AsyncEx;
@@ -9,25 +8,25 @@ using PacketParser.Services;
 
 namespace EntityCache.Bussines
 {
-    public class ProductGroupBussines : IProductGroup
+    public class SliderBussines : ISlider
     {
         public Guid Guid { get; set; }
-        public DateTime Modified { get; set; } = DateTime.Now;
-        public string Code { get; set; }
-        public string Name { get; set; }
-        public Guid ParentGuid { get; set; }
-        public string Description { get; set; }
-        public int CountPrdInGroup => AsyncContext
-            .Run(PrdSelectedGroupBussines.GetAllAsync).Count(q => q.GroupGuid == Guid);
+        public DateTime Modified { get; set; }
+        public string Title { get; set; }
+        public string ImageName { get; set; }
+        public string URL { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public bool IsActive { get; set; }
+        public string StartDateSh => Calendar.MiladiToShamsi(StartDate);
+        public string EndDateSh => Calendar.MiladiToShamsi(EndDate);
 
-        public static async Task<List<ProductGroupBussines>> GetAllAsync() =>
-            await UnitOfWork.ProductGroup.GetAllAsync();
 
-        public static async Task<ProductGroupBussines> GetAsync(Guid guid) =>
-            await UnitOfWork.ProductGroup.GetAsync(guid);
+        public static async Task<List<SliderBussines>> GetAllAsync() => await UnitOfWork.Slider.GetAllAsync();
 
-        public static ProductGroupBussines Get(Guid guid) =>
-            AsyncContext.Run(() => GetAsync(guid));
+        public static async Task<SliderBussines> GetAsync(Guid guid) => await UnitOfWork.Slider.GetAsync(guid);
+
+        public static SliderBussines Get(Guid guid) => AsyncContext.Run(() => GetAsync(guid));
 
         public async Task<ReturnedSaveFuncInfo> SaveAsync(string tranName = "")
         {
@@ -40,7 +39,7 @@ namespace EntityCache.Bussines
                 { //BeginTransaction
                 }
 
-                res.AddReturnedValue(await UnitOfWork.ProductGroup.SaveAsync(this, tranName));
+                res.AddReturnedValue(await UnitOfWork.Slider.SaveAsync(this, tranName));
                 res.ThrowExceptionIfError();
                 if (autoTran)
                 {
@@ -59,9 +58,6 @@ namespace EntityCache.Bussines
 
             return res;
         }
-
-        public static async Task<bool> CheckName(Guid guid, string name) =>
-            await UnitOfWork.ProductGroup.CheckName(guid, name);
 
         public async Task<ReturnedSaveFuncInfo> RemoveAsync(string tranName = "")
         {
@@ -74,7 +70,7 @@ namespace EntityCache.Bussines
                 { //BeginTransaction
                 }
 
-                res.AddReturnedValue(await UnitOfWork.ProductGroup.RemoveAsync(Guid, tranName));
+                res.AddReturnedValue(await UnitOfWork.Slider.RemoveAsync(Guid, tranName));
                 res.ThrowExceptionIfError();
                 if (autoTran)
                 {
@@ -93,10 +89,5 @@ namespace EntityCache.Bussines
 
             return res;
         }
-
-        public static async Task<int> ChildCount(Guid guid) => await UnitOfWork.ProductGroup.ChildCount(guid);
-
-        public static async Task<string> NextCode() => await UnitOfWork.ProductGroup.NextCode();
-
     }
 }

@@ -59,6 +59,8 @@
     <Compile Include="Entities\CustomerGroup.cs" />
     <Compile Include="Entities\DivarCategory.cs" />
     <Compile Include="Entities\Features.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\OrderDetail.cs" />
     <Compile Include="Entities\PrdComment.cs" />
     <Compile Include="Entities\PrdFeatures.cs" />
     <Compile Include="Entities\PrdSelectedGroup.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="Entities\ProductPictures.cs" />
     <Compile Include="Entities\Rolles.cs" />
     <Compile Include="Entities\Simcard.cs" />
+    <Compile Include="Entities\Slider.cs" />
     <Compile Include="Entities\Users.cs" />
     <Compile Include="Migrations\202004251624194__One.cs" />
     <Compile Include="Migrations\202004251624194__One.designer.cs">
@@ -133,6 +136,18 @@
     <Compile Include="Migrations\202005231454473__Sixteen.designer.cs">
       <DependentUpon>202005231454473__Sixteen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005291246255__SevenTeen.cs" />
+    <Compile Include="Migrations\202005291246255__SevenTeen.designer.cs">
+      <DependentUpon>202005291246255__SevenTeen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005291347594__EightTeen.cs" />
+    <Compile Include="Migrations\202005291347594__EightTeen.designer.cs">
+      <DependentUpon>202005291347594__EightTeen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005291529158__NineTeen.cs" />
+    <Compile Include="Migrations\202005291529158__NineTeen.designer.cs">
+      <DependentUpon>202005291529158__NineTeen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ModelContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -189,6 +204,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005231454473__Sixteen.resx">
       <DependentUpon>202005231454473__Sixteen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005291246255__SevenTeen.resx">
+      <DependentUpon>202005291246255__SevenTeen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005291347594__EightTeen.resx">
+      <DependentUpon>202005291347594__EightTeen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005291529158__NineTeen.resx">
+      <DependentUpon>202005291529158__NineTeen.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -106,5 +106,6 @@ namespace EntityCache.Bussines
         }
 
         public static UserBussines Get(Guid guid) => AsyncContext.Run(() => GetAsync(guid));
+
     }
 }

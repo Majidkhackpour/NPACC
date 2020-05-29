@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using EntityCache.Assistence;
 using EntityCache.Core;
@@ -84,6 +85,10 @@ namespace EntityCache.Persistence
                 var Tu = typeof(U);
                 var ret = _dbContext.Set<U>().AsNoTracking().ToList();
                 return Mappings.Default.Map<List<T>>(ret);
+            }
+            catch (ThreadAbortException)
+            {
+                return null;
             }
             catch (Exception ex)
             {

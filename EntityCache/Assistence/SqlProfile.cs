@@ -32,6 +32,12 @@ namespace EntityCache.Assistence
             CreateMap<FeatureBussines, WebFeature>().ReverseMap();
             CreateMap<PrdCommentBussines, PrdComment>().ReverseMap();
             CreateMap<PrdCommentBussines, WebPrdComment>().ReverseMap();
+            CreateMap<OrderBussines, Order>().ReverseMap();
+            CreateMap<OrderDetailBussines, OrderDetail>().ReverseMap();
+            CreateMap<OrderBussines, WebOrder>().ReverseMap();
+            CreateMap<OrderDetailBussines, WebOrerDetail>().ReverseMap();
+            CreateMap<SliderBussines, Slider>().ReverseMap();
+            CreateMap<SliderBussines, WebSlider>().ReverseMap();
         }
     }
 }
