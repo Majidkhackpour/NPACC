@@ -33,6 +33,10 @@ namespace EntityCache.Persistence
                 var ret = _dbContext.Set<U>().AsNoTracking().FirstOrDefault(p => p.Guid == guid);
                 return Mappings.Default.Map<T>(ret);
             }
+            catch (ThreadAbortException)
+            {
+                return null;
+            }
             catch (Exception e)
             {
                 WebErrorLog.ErrorInstence.StartErrorLog(e);

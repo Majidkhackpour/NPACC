@@ -38,6 +38,7 @@ namespace EntityCache.Assistence
             CreateMap<OrderDetailBussines, WebOrerDetail>().ReverseMap();
             CreateMap<SliderBussines, Slider>().ReverseMap();
             CreateMap<SliderBussines, WebSlider>().ReverseMap();
+            CreateMap<VisitBussines, Visit>().ReverseMap();
         }
     }
 }

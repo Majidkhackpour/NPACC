@@ -125,6 +125,7 @@
     <Compile Include="Bussines\SimcardBussines.cs" />
     <Compile Include="Bussines\SliderBussines.cs" />
     <Compile Include="Bussines\UserBussines.cs" />
+    <Compile Include="Bussines\VisitBussines.cs" />
     <Compile Include="Core\IChatNumberRepository.cs" />
     <Compile Include="Core\ICustomerGroupRepository.cs" />
     <Compile Include="Core\ICustomerRepository.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="Core\ISimcardRepository.cs" />
     <Compile Include="Core\ISliderRepository.cs" />
     <Compile Include="Core\IUserRepository.cs" />
+    <Compile Include="Core\IVisitRepository.cs" />
     <Compile Include="Persistence\ChatNumberPersitenceRepository.cs" />
     <Compile Include="Persistence\CustomerGroupPersistenceRepository.cs" />
     <Compile Include="Persistence\CustomerPersistenceRepository.cs" />
@@ -163,10 +165,13 @@
     <Compile Include="Persistence\SimcardPersistenceRepository.cs" />
     <Compile Include="Persistence\SliderPersistenceRepository.cs" />
     <Compile Include="Persistence\UsersPersistenceRepository.cs" />
+    <Compile Include="Persistence\VisitPersistenceRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Assistence\UnitOfWork.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
+    <Compile Include="ViewModels\ProductCompareViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="ViewModels\VisiCountViewModel.cs" />
     <Compile Include="WebBussines\WebChatNumbers.cs" />
     <Compile Include="WebBussines\WebCustomer.cs" />
     <Compile Include="WebBussines\WebCustomerGroup.cs" />

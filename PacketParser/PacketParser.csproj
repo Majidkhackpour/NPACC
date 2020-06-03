@@ -71,6 +71,7 @@
     <Compile Include="EntitiesInterface\ISimcard.cs" />
     <Compile Include="EntitiesInterface\ISlider.cs" />
     <Compile Include="EntitiesInterface\IUsers.cs" />
+    <Compile Include="EntitiesInterface\IVisit.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Calendar.cs" />

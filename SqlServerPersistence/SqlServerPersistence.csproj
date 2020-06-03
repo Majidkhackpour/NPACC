@@ -72,6 +72,7 @@
     <Compile Include="Entities\Simcard.cs" />
     <Compile Include="Entities\Slider.cs" />
     <Compile Include="Entities\Users.cs" />
+    <Compile Include="Entities\Visit.cs" />
     <Compile Include="Migrations\202004251624194__One.cs" />
     <Compile Include="Migrations\202004251624194__One.designer.cs">
       <DependentUpon>202004251624194__One.cs</DependentUpon>
@@ -148,6 +149,14 @@
     <Compile Include="Migrations\202005291529158__NineTeen.designer.cs">
       <DependentUpon>202005291529158__NineTeen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006030957546__Towenty.cs" />
+    <Compile Include="Migrations\202006030957546__Towenty.designer.cs">
+      <DependentUpon>202006030957546__Towenty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006031014501__TowentyOne.cs" />
+    <Compile Include="Migrations\202006031014501__TowentyOne.designer.cs">
+      <DependentUpon>202006031014501__TowentyOne.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ModelContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -213,6 +222,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005291529158__NineTeen.resx">
       <DependentUpon>202005291529158__NineTeen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006030957546__Towenty.resx">
+      <DependentUpon>202006030957546__Towenty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006031014501__TowentyOne.resx">
+      <DependentUpon>202006031014501__TowentyOne.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

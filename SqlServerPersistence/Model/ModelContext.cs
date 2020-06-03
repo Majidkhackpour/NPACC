@@ -34,6 +34,6 @@ namespace SqlServerPersistence.Model
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderDetail> OrderDetail { get; set; }
         public virtual DbSet<Slider> Slider { get; set; }
-
+        public virtual DbSet<Visit> Visit { get; set; }
     }
 }
