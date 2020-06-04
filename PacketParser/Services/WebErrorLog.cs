@@ -8,13 +8,13 @@ using System.Windows.Forms;
 
 namespace PacketParser.Services
 {
-   public class WebErrorLog
+    public class WebErrorLog
     {
         public WebErrorLog()
         {
 
         }
-       
+
         public void StartErrorLog(Exception ex, string _description = "",
             [System.Runtime.CompilerServices.CallerMemberName]
             string memberName = "",
