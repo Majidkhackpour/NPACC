@@ -41,11 +41,11 @@ namespace PacketParser.Services
         {
             try
             {
-                txt.Text = txt.Text.Replace(".", "000");
-                txt.Text = txt.Text.Replace("+", "00");
-                if (!string.IsNullOrEmpty(txt.Text))
-                    txt.Text = decimal.Parse(txt.Text).ToString("#,0");
-                txt.SelectionStart = txt.Text.Length;
+                var str = txt.Text;
+                str = txt.Text.Replace(".", "000");
+                str = str.Replace("+", "00");
+                txt.SelectionStart = str.Length;
+                txt.Text = str;
             }
             catch (Exception e)
             {

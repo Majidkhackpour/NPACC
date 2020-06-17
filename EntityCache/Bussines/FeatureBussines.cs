@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EntityCache.Assistence;
 using Nito.AsyncEx;
+using PacketParser;
 using PacketParser.EntitiesInterface;
 using PacketParser.Services;
 
@@ -62,6 +63,13 @@ namespace EntityCache.Bussines
             {
                 if (autoTran)
                 { //BeginTransaction
+                }
+
+                var allList = await PrdFeatureBussines.GetAllByFeaturesGuidAsync(Guid);
+                if (allList.Count > 0)
+                {
+                    res.AddReturnedValue(ReturnedState.Error, "از این ویژگی در تعریف کالا استفاده شده است");
+                    return res;
                 }
 
                 res.AddReturnedValue(await UnitOfWork.Feature.RemoveAsync(Guid, tranName));

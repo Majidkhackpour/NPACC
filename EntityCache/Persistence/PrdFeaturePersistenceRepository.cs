@@ -34,5 +34,21 @@ namespace EntityCache.Persistence
                 return null;
             }
         }
+
+        public async Task<List<PrdFeatureBussines>> GetAllByFeaturesGuidAsync(Guid featureGuid)
+        {
+            try
+            {
+                var acc = db.PrdFeatures.AsNoTracking().Where(q => q.FeatureGuid == featureGuid)
+                    .ToList();
+                var ret = Mappings.Default.Map<List<PrdFeatureBussines>>(acc);
+                return ret;
+            }
+            catch (Exception exception)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(exception);
+                return null;
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using EntityCache.Assistence;
 using EntityCache.Bussines;
@@ -28,6 +29,10 @@ namespace EntityCache.Persistence
                     .ToList();
                 var ret = Mappings.Default.Map<List<PrdCommentBussines>>(acc);
                 return ret;
+            }
+            catch (ThreadAbortException)
+            {
+                return null;
             }
             catch (Exception exception)
             {

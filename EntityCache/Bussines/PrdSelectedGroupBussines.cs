@@ -13,6 +13,7 @@ namespace EntityCache.Bussines
         public DateTime Modified { get; set; }
         public Guid PrdGuid { get; set; }
         public Guid GroupGuid { get; set; }
+        public string GroupName => ProductGroupBussines.Get(GroupGuid).Name;
 
         public static async Task<List<PrdSelectedGroupBussines>> GetAllAsync(Guid prdGuid) =>
     await UnitOfWork.PrdSelectedGroup.GetAllAsync(prdGuid);

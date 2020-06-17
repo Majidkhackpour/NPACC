@@ -8,5 +8,6 @@ namespace EntityCache.Core
     public interface IPrdFeatureRepository : IRepository<PrdFeatureBussines>
     {
         Task<List<PrdFeatureBussines>> GetAllAsync(Guid prdGuid);
+        Task<List<PrdFeatureBussines>> GetAllByFeaturesGuidAsync(Guid featureGuid);
     }
 }

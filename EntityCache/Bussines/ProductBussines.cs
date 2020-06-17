@@ -15,7 +15,7 @@ namespace EntityCache.Bussines
         public DateTime Modified { get; set; } = DateTime.Now;
         public string Code { get; set; }
         public string Name { get; set; }
-        public DateTime CreateDate { get; set; }
+        public DateTime CreateDate { get; set; } = DateTime.Now;
         public string ImageName { get; set; }
         public decimal Price { get; set; }
         public string Description { get; set; }
@@ -104,9 +104,10 @@ namespace EntityCache.Bussines
                             tranName));
                     res.ThrowExceptionIfError();
 
-
+                    foreach (var item in ImageList)
+                        item.PrdGuid = Guid;
                     res.AddReturnedValue(
-                        await UnitOfWork.ProductPictures.SaveRangeAsync(ImageList, tranName));
+                    await UnitOfWork.ProductPictures.SaveRangeAsync(ImageList, tranName));
                     res.ThrowExceptionIfError();
                 }
 
@@ -120,6 +121,8 @@ namespace EntityCache.Bussines
                             tranName));
                     res.ThrowExceptionIfError();
 
+                    foreach (var item in GroupList)
+                        item.PrdGuid = Guid;
 
                     res.AddReturnedValue(
                         await UnitOfWork.PrdSelectedGroup.SaveRangeAsync(GroupList, tranName));
@@ -136,11 +139,31 @@ namespace EntityCache.Bussines
                             tranName));
                     res.ThrowExceptionIfError();
 
+                    foreach (var item in TagsList)
+                        item.PrdGuid = Guid;
 
                     res.AddReturnedValue(
                         await UnitOfWork.PrdTag.SaveRangeAsync(TagsList, tranName));
                     res.ThrowExceptionIfError();
                 }
+
+
+                if (FeatureList.Count > 0)
+                {
+                    var list = await PrdFeatureBussines.GetAllAsync(Guid);
+                    res.AddReturnedValue(
+                        await UnitOfWork.PrdFeature.RemoveRangeAsync(list.Select(q => q.Guid).ToList(),
+                            tranName));
+                    res.ThrowExceptionIfError();
+
+                    foreach (var item in FeatureList)
+                        item.PrdGuid = Guid;
+
+                    res.AddReturnedValue(
+                        await UnitOfWork.PrdFeature.SaveRangeAsync(FeatureList, tranName));
+                    res.ThrowExceptionIfError();
+                }
+
 
                 res.AddReturnedValue(await UnitOfWork.Product.SaveAsync(this, tranName));
                 res.ThrowExceptionIfError();
@@ -176,9 +199,37 @@ namespace EntityCache.Bussines
                 { //BeginTransaction
                 }
 
-                var list = await ProductPicturesBussines.GetAllAsync(Guid);
+                var imagelist = await ProductPicturesBussines.GetAllAsync(Guid);
                 res.AddReturnedValue(
-                    await UnitOfWork.ProductPictures.RemoveRangeAsync(list.Select(q => q.Guid).ToList(),
+                    await UnitOfWork.ProductPictures.RemoveRangeAsync(imagelist.Select(q => q.Guid).ToList(),
+                        tranName));
+                res.ThrowExceptionIfError();
+
+
+                var grouplist = await PrdSelectedGroupBussines.GetAllAsync(Guid);
+                res.AddReturnedValue(
+                    await UnitOfWork.PrdSelectedGroup.RemoveRangeAsync(grouplist.Select(q => q.Guid).ToList(),
+                        tranName));
+                res.ThrowExceptionIfError();
+
+
+                var taglist = await PrdTagBussines.GetAllAsync(Guid);
+                res.AddReturnedValue(
+                    await UnitOfWork.PrdTag.RemoveRangeAsync(taglist.Select(q => q.Guid).ToList(),
+                        tranName));
+                res.ThrowExceptionIfError();
+
+
+                var featurelist = await PrdFeatureBussines.GetAllAsync(Guid);
+                res.AddReturnedValue(
+                    await UnitOfWork.PrdFeature.RemoveRangeAsync(featurelist.Select(q => q.Guid).ToList(),
+                        tranName));
+                res.ThrowExceptionIfError();
+
+
+                var commentlist = await PrdCommentBussines.GetAllAsync(Guid);
+                res.AddReturnedValue(
+                    await UnitOfWork.PrdComment.RemoveRangeAsync(commentlist.Select(q => q.Guid).ToList(),
                         tranName));
                 res.ThrowExceptionIfError();
 
@@ -221,7 +272,8 @@ namespace EntityCache.Bussines
                         {
                             res = res.Where(x =>
                                     x.Name.Contains(item) || x.TagsList.Select(q => q.Tag).Contains(item) ||
-                                    x.ShortDesc.Contains(item) || x.Description.Contains(item))
+                                    x.ShortDesc.Contains(item) || x.Description.Contains(item) ||
+                                    x.Code.Contains(item))
                                 ?.ToList();
                         }
                     }
@@ -254,5 +306,6 @@ namespace EntityCache.Bussines
 
         public static async Task<List<ProductBussines>> GetAllByGroupAsync(Guid groupGuid) =>
             await UnitOfWork.Product.GetAllByGroupAsync(groupGuid);
+        
     }
 }

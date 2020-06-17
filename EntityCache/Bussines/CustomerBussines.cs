@@ -98,7 +98,7 @@ namespace EntityCache.Bussines
         public static async Task<List<CustomerBussines>> GetAllByGroupAsync(Guid groupGuid) =>
             await UnitOfWork.Customer.GetAllByGroupAsync(groupGuid);
 
-        public static async Task<List<CustomerBussines>> GetAllAsync(string search)
+        public static async Task<List<CustomerBussines>> GetAllAsync(string search, Guid parentGuid)
         {
             try
             {
@@ -106,6 +106,8 @@ namespace EntityCache.Bussines
                     search = "";
                 List<CustomerBussines> res = null;
                 res = await GetAllAsync();
+                if (parentGuid != Guid.Empty)
+                    res = res.Where(q => q.GroupGuid == parentGuid).ToList();
                 var searchItems = search.SplitString();
                 if (searchItems?.Count > 0)
                     foreach (var item in searchItems)
@@ -113,8 +115,8 @@ namespace EntityCache.Bussines
                         if (!string.IsNullOrEmpty(item) && item.Trim() != "")
                         {
                             res = res.Where(x =>
-                                x.Name.Contains(item) || 
-                                x.Phone1.Contains(item) || 
+                                x.Name.Contains(item) ||
+                                x.Phone1.Contains(item) ||
                                 x.Address.Contains(item))
                                 ?.ToList();
                         }

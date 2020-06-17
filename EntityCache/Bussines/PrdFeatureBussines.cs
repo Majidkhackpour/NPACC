@@ -89,5 +89,7 @@ namespace EntityCache.Bussines
 
         public static async Task<List<PrdFeatureBussines>> GetAllAsync(Guid prdGuid) =>
             await UnitOfWork.PrdFeature.GetAllAsync(prdGuid);
+        public static async Task<List<PrdFeatureBussines>> GetAllByFeaturesGuidAsync(Guid featureGuid) =>
+            await UnitOfWork.PrdFeature.GetAllByFeaturesGuidAsync(featureGuid);
     }
 }

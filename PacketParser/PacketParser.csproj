@@ -78,6 +78,7 @@
     <Compile Include="Services\ContextMenuSetter.cs" />
     <Compile Include="Services\CurrencyText.cs" />
     <Compile Include="Services\Etentions.cs" />
+    <Compile Include="Services\ImageResizer.cs" />
     <Compile Include="Services\PersianNameAttribute.cs" />
     <Compile Include="Services\ReturnedSaveFuncInfo.cs" />
     <Compile Include="Services\SendEmail.cs" />

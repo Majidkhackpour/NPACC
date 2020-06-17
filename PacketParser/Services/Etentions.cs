@@ -94,10 +94,6 @@ namespace PacketParser.Services
 
             return short.TryParse(value, out var ret) ? ret : def;
         }
-
-        public static string ThreeSeparator(this decimal value)
-        {
-            return value.ToString("#,0");
-        }
+       
     }
 }
