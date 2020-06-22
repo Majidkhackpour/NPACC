@@ -68,6 +68,7 @@
     <Compile Include="EntitiesInterface\IProductGroup.cs" />
     <Compile Include="EntitiesInterface\IProductPictures.cs" />
     <Compile Include="EntitiesInterface\IRolles.cs" />
+    <Compile Include="EntitiesInterface\ISettings.cs" />
     <Compile Include="EntitiesInterface\ISimcard.cs" />
     <Compile Include="EntitiesInterface\ISlider.cs" />
     <Compile Include="EntitiesInterface\IUsers.cs" />
@@ -80,9 +81,11 @@
     <Compile Include="Services\Etentions.cs" />
     <Compile Include="Services\ImageResizer.cs" />
     <Compile Include="Services\PersianNameAttribute.cs" />
+    <Compile Include="Services\PropertyComparer.cs" />
     <Compile Include="Services\ReturnedSaveFuncInfo.cs" />
     <Compile Include="Services\SendEmail.cs" />
     <Compile Include="Services\SendErrorToTelegram.cs" />
+    <Compile Include="Services\SortableBindingList.cs" />
     <Compile Include="Services\txtSetter.cs" />
     <Compile Include="Services\WebErrorLog.cs" />
   </ItemGroup>

@@ -69,6 +69,7 @@
     <Compile Include="Entities\ProductGroup.cs" />
     <Compile Include="Entities\ProductPictures.cs" />
     <Compile Include="Entities\Rolles.cs" />
+    <Compile Include="Entities\Settings.cs" />
     <Compile Include="Entities\Simcard.cs" />
     <Compile Include="Entities\Slider.cs" />
     <Compile Include="Entities\Users.cs" />
@@ -157,6 +158,10 @@
     <Compile Include="Migrations\202006031014501__TowentyOne.designer.cs">
       <DependentUpon>202006031014501__TowentyOne.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006171356146__TowentyTow.cs" />
+    <Compile Include="Migrations\202006171356146__TowentyTow.designer.cs">
+      <DependentUpon>202006171356146__TowentyTow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ModelContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -228,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006031014501__TowentyOne.resx">
       <DependentUpon>202006031014501__TowentyOne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006171356146__TowentyTow.resx">
+      <DependentUpon>202006171356146__TowentyTow.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

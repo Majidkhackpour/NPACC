@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using EntityCache.Assistence;
 using Nito.AsyncEx;
@@ -88,6 +89,42 @@ namespace EntityCache.Bussines
             }
 
             return res;
+        }
+
+
+        public static async Task<List<SliderBussines>> GetAllAsync(string search)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(search))
+                    search = "";
+                List<SliderBussines> res = null;
+                res = await GetAllAsync();
+                var searchItems = search.SplitString();
+                if (searchItems?.Count > 0)
+                    foreach (var item in searchItems)
+                    {
+                        if (!string.IsNullOrEmpty(item) && item.Trim() != "")
+                        {
+                            res = res.Where(x =>
+                                    x.Title.Contains(item) ||
+                                    x.URL.Contains(item) ||
+                                    x.StartDateSh.Contains(item) ||
+                                    x.EndDateSh.Contains(item))
+                                ?.ToList();
+                        }
+                    }
+
+                res = res?.OrderBy(o => o.EndDateSh).ToList();
+                return res;
+            }
+            catch (OperationCanceledException)
+            { return null; }
+            catch (Exception ex)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(ex);
+                return new List<SliderBussines>();
+            }
         }
     }
 }

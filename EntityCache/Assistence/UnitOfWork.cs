@@ -27,6 +27,7 @@ namespace EntityCache.Assistence
         private static IOrderDetailRepository _orderDetailRepository;
         private static ISliderRepository _sliderRepository;
         private static IVisitRepository _visitRepository;
+        private static ISettingsRepositort _settingRepository;
 
         public static void Dispose()
         {
@@ -114,5 +115,9 @@ namespace EntityCache.Assistence
         public static IVisitRepository Visit => _visitRepository ??
                                                   (_visitRepository =
                                                       new VisitPersistenceRepository(db));
+
+        public static ISettingsRepositort Setting => _settingRepository ??
+                                                (_settingRepository =
+                                                    new SettingsPersistenceRepository(db));
     }
 }

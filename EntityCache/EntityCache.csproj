@@ -122,6 +122,7 @@
     <Compile Include="Bussines\ProductGroupBussines.cs" />
     <Compile Include="Bussines\ProductPicturesBussines.cs" />
     <Compile Include="Bussines\RolleBussines.cs" />
+    <Compile Include="Bussines\SettingsBussines.cs" />
     <Compile Include="Bussines\SimcardBussines.cs" />
     <Compile Include="Bussines\SliderBussines.cs" />
     <Compile Include="Bussines\UserBussines.cs" />
@@ -142,6 +143,7 @@
     <Compile Include="Core\IProductRepository.cs" />
     <Compile Include="Core\IRepository.cs" />
     <Compile Include="Core\IRolleRepository.cs" />
+    <Compile Include="Core\ISettingsRepositort.cs" />
     <Compile Include="Core\ISimcardRepository.cs" />
     <Compile Include="Core\ISliderRepository.cs" />
     <Compile Include="Core\IUserRepository.cs" />
@@ -162,6 +164,7 @@
     <Compile Include="Persistence\ProductPersistenceRepository.cs" />
     <Compile Include="Persistence\ProductPicturesPersitenceRepository.cs" />
     <Compile Include="Persistence\RollesPersistenceRepository.cs" />
+    <Compile Include="Persistence\SettingsPersistenceRepository.cs" />
     <Compile Include="Persistence\SimcardPersistenceRepository.cs" />
     <Compile Include="Persistence\SliderPersistenceRepository.cs" />
     <Compile Include="Persistence\UsersPersistenceRepository.cs" />
@@ -187,6 +190,7 @@
     <Compile Include="WebBussines\WebProductGroup.cs" />
     <Compile Include="WebBussines\WebProductPictures.cs" />
     <Compile Include="WebBussines\WebRolles.cs" />
+    <Compile Include="WebBussines\WebSettings.cs" />
     <Compile Include="WebBussines\WebSimcard.cs" />
     <Compile Include="WebBussines\WebSlider.cs" />
     <Compile Include="WebBussines\WebUsers.cs" />

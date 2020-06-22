@@ -39,6 +39,7 @@ namespace EntityCache.Assistence
             CreateMap<SliderBussines, Slider>().ReverseMap();
             CreateMap<SliderBussines, WebSlider>().ReverseMap();
             CreateMap<VisitBussines, Visit>().ReverseMap();
+            CreateMap<SettingsBussines, Settings>().ReverseMap();
         }
     }
 }
