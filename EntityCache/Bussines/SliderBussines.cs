@@ -12,12 +12,12 @@ namespace EntityCache.Bussines
     public class SliderBussines : ISlider
     {
         public Guid Guid { get; set; }
-        public DateTime Modified { get; set; }
+        public DateTime Modified { get; set; } = DateTime.Now;
         public string Title { get; set; }
         public string ImageName { get; set; }
         public string URL { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime StartDate { get; set; } = DateTime.Now;
+        public DateTime EndDate { get; set; } = DateTime.Now.AddDays(7);
         public bool IsActive { get; set; }
         public string StartDateSh => Calendar.MiladiToShamsi(StartDate);
         public string EndDateSh => Calendar.MiladiToShamsi(EndDate);

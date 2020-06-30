@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace PacketParser.Services
@@ -94,6 +96,21 @@ namespace PacketParser.Services
 
             return short.TryParse(value, out var ret) ? ret : def;
         }
-       
+        public static SortableBindingList<T> ToSortableBindingList<T>(this IEnumerable<T> items)
+        {
+            var ret = new SortableBindingList<T>();
+            try
+            {
+                if (items != null && items.Any())
+                    foreach (var item in items)
+                        ret.Add(item);
+            }
+            catch (Exception ex)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(ex);
+            }
+
+            return ret;
+        }
     }
 }
