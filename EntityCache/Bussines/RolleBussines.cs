@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EntityCache.Assistence;
+using Nito.AsyncEx;
 using PacketParser.EntitiesInterface;
 using PacketParser.Services;
 
@@ -49,5 +50,7 @@ namespace EntityCache.Bussines
         }
 
         public static async Task<RolleBussines> GetAsync(Guid guid) => await UnitOfWork.Rolles.GetAsync(guid);
+
+        public static RolleBussines Get(Guid guid) => AsyncContext.Run(() => GetAsync(guid));
     }
 }

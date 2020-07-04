@@ -32,5 +32,24 @@ namespace EntityCache.Persistence
                 return 1;
             }
         }
+
+        public async Task<ReturnedSaveFuncInfo> ChangeStatusAsync(Guid orderGuid)
+        {
+            var res = new ReturnedSaveFuncInfo();
+            try
+            {
+                var order = db.Order.SingleOrDefault(q => q.Guid == orderGuid);
+                if (order == null) return res;
+                order.IsFinally = true;
+                await db.SaveChangesAsync();
+            }
+            catch (Exception exception)
+            {
+                WebErrorLog.ErrorInstence.StartErrorLog(exception);
+                res.AddReturnedValue(exception);
+            }
+
+            return res;
+        }
     }
 }
