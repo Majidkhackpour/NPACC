@@ -112,6 +112,7 @@
     <Compile Include="Bussines\CustomerGroupBussines.cs" />
     <Compile Include="Bussines\DivarCategoryBussines.cs" />
     <Compile Include="Bussines\FeatureBussines.cs" />
+    <Compile Include="Bussines\OpinionBussines.cs" />
     <Compile Include="Bussines\OrderBussines.cs" />
     <Compile Include="Bussines\OrderDetailBussines.cs" />
     <Compile Include="Bussines\PrdCommentBussines.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Core\ICustomerRepository.cs" />
     <Compile Include="Core\IDivarCategoryRepository.cs" />
     <Compile Include="Core\IFeatureRepository.cs" />
+    <Compile Include="Core\IOpinionRepository.cs" />
     <Compile Include="Core\IOrderDetailRepository.cs" />
     <Compile Include="Core\IOrderRepository.cs" />
     <Compile Include="Core\IPrdCommentRepository.cs" />
@@ -154,6 +156,7 @@
     <Compile Include="Persistence\DivarCategoreyPersistenceRepository.cs" />
     <Compile Include="Persistence\FeaturePersistenceRepository.cs" />
     <Compile Include="Persistence\GenericRepository.cs" />
+    <Compile Include="Persistence\OpinionPersistenceRepository.cs" />
     <Compile Include="Persistence\OrderDetailPersitenceRepository.cs" />
     <Compile Include="Persistence\OrderPersistenceRepository.cs" />
     <Compile Include="Persistence\PrdCommentPersistenceRepository.cs" />
@@ -180,6 +183,7 @@
     <Compile Include="WebBussines\WebCustomerGroup.cs" />
     <Compile Include="WebBussines\WebDivarCategory.cs" />
     <Compile Include="WebBussines\WebFeature.cs" />
+    <Compile Include="WebBussines\WebOpinion.cs" />
     <Compile Include="WebBussines\WebOrder.cs" />
     <Compile Include="WebBussines\WebOrerDetail.cs" />
     <Compile Include="WebBussines\WebPrdComment.cs" />

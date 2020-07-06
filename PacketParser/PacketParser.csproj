@@ -58,6 +58,7 @@
     <Compile Include="EntitiesInterface\IDivarCategory.cs" />
     <Compile Include="EntitiesInterface\IFeatures.cs" />
     <Compile Include="EntitiesInterface\IHasGuid.cs" />
+    <Compile Include="EntitiesInterface\IOpinion.cs" />
     <Compile Include="EntitiesInterface\IOrder.cs" />
     <Compile Include="EntitiesInterface\IOrderDetail.cs" />
     <Compile Include="EntitiesInterface\IPrdComment.cs" />

@@ -36,5 +36,7 @@ namespace SqlServerPersistence.Model
         public virtual DbSet<Slider> Slider { get; set; }
         public virtual DbSet<Visit> Visit { get; set; }
         public virtual DbSet<Settings> Settings { get; set; }
+        public virtual DbSet<Opinions> Opinions { get; set; }
+
     }
 }

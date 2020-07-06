@@ -59,6 +59,7 @@
     <Compile Include="Entities\CustomerGroup.cs" />
     <Compile Include="Entities\DivarCategory.cs" />
     <Compile Include="Entities\Features.cs" />
+    <Compile Include="Entities\Opinions.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\OrderDetail.cs" />
     <Compile Include="Entities\PrdComment.cs" />
@@ -162,6 +163,10 @@
     <Compile Include="Migrations\202006171356146__TowentyTow.designer.cs">
       <DependentUpon>202006171356146__TowentyTow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007061418256__Towenty_three.cs" />
+    <Compile Include="Migrations\202007061418256__Towenty_three.designer.cs">
+      <DependentUpon>202007061418256__Towenty_three.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ModelContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -236,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006171356146__TowentyTow.resx">
       <DependentUpon>202006171356146__TowentyTow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007061418256__Towenty_three.resx">
+      <DependentUpon>202007061418256__Towenty_three.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
